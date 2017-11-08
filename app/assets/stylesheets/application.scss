@@ -9,6 +9,212 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+
+/* universal */
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: auto;
+}
+a:-webkit-any-link:visited, :active {
+  text-decoration: none;
+  cursor: auto;
+}
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: orange;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+.btn-custom {
+  color: white !important;
+  :hover{
+    background-color:rgba(254, 93, 0, 0.836) !important;
+  }
+  @extend .btn; 
+  @extend .btn-default; 
+  background-color: #FE8600 !important;
+  a, a:active, a:link, a:active {
+    color: white !important;
+    
+  }
+ }
+ .nav.nav-center {
+  display: inline-block;
+  left: 0;
+  right: 0;
+  text-align:center;width:100%;
+}
+.nav.nav-center li,.nav.nav-center li  a{
+  display:inline;
+  float:none;
+  line-height:40px;
+  font-size: 16px;
+  padding: 10px;
+  color:  black;
+}
+nav.navbar-nav.navbar-right{
+  color: white;
+}
+.nav.navbar-light{
+  background-color: #CDCDCD !important;
+}
+
+.nav.nav-center li a:hover {
+  color: black;
+  border-radius: 5px;
+  background-color:  rgba(254, 93, 0, 0.836)
+}
+div.login {
+  .wrapper {	
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);  
+  
+    .form-signin-heading,
+    .checkbox {
+      margin-bottom: 30px;
+    }
+  
+    .checkbox {
+      font-weight: normal;
+    }
+  
+    .form-control {
+      position: relative;
+      font-size: 16px;
+      height: auto;
+      padding: 10px;
+      @include box-sizing(border-box);
+  
+      &:focus {
+        z-index: 2;
+      }
+    }
+  
+    input[type="text"] {
+      margin-bottom: -1px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    input[type="password"] {
+      margin-bottom: 20px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+  
+}
+
+div.left {
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin: 2px 10px;
+  display: inline;
+}
+
+div.right {
+  float: right;
+  width:40%;
+
+  text-align: left;
+  margin: 2px 10px;
+  display: inline;
+}
