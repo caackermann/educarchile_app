@@ -6,7 +6,13 @@
   <strong>Creado por: </strong>
   <%= @project.user.name%> <%=@project.user.lastname%>
 </p>
-
-
-<%= link_to 'Editar', edit_project_path(@project) %>
+<p>
+  <strong>Descripción: </strong><br>
+  <%= @project.description%>
+</p>
+<% if user_signed_in? %>
+  <% if @project.user.id == current_user.id %>
+    <%= link_to 'Editar', edit_project_path(@project) %>
+  <% end %>
+<% end %>
 </div>

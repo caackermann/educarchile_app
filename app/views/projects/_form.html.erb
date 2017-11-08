@@ -13,11 +13,14 @@
 <% end %>
 
 <div class="field">
-  <%= form.label :name, "Nombre del Proyecto" %>
+  <%= form.label :name, "Nombre del Proyecto" %><br>
   <%= form.text_field :name, id: :project_name %>
+</div><br>
+<div class="field">
+  <%= form.label :description, "Descripción" %><br>
+  <%= form.text_area :description, id: :project_description, size:"100x10", placeholder: "Agrega una descripción breve de tu proyecto" %>
 </div>
-
-
+<br>
 <div class="actions">
   <%= form.submit "Crear", class:"btn btn-lg btn-custom" %>
 </div>

@@ -15,9 +15,8 @@
             </div>
           <%= link_to 'Edit', edit_user_registration_path(@user) %> |
           <%= link_to 'Back', :back %><br><br>
-          <%= link_to "Crear Nuevo Proyecto", "#" %>
+          <%= link_to "Crear Nuevo Proyecto", new_project_path %>
         </div>
-        <% if false%>
         <div class="right">
             <h3>Mis proyectos </h3><br>
     
@@ -32,8 +31,8 @@
                 <% @user.projects.each do |project| %>
                   <tr>
                     <td><%= project.name %></td>
-                    <td><%= link_to 'Ver', "#" %></td>
-                    <td><%= link_to 'Editar', "#" %></td>
+                    <td><%= link_to 'Ver', project %></td>
+                    <td><%= link_to 'Editar', edit_project_path %></td>
                     <% if false %>
                     <td><%= link_to 'Eliminar', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>                    
                     <% end %>
@@ -44,7 +43,6 @@
     
             <br>
           </div>
-        <%end%>
         
     </div>
     
