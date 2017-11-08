@@ -11,7 +11,7 @@
                 <button class="fab ripple"></button>
             </div>
             <div class="content">
-            <p><%= project.description %></p>
+            <p><%= project.description.truncate_words(20) %></p>
           </div>
           <div class="action">
             <%= link_to "Ver más", project, class: "ripple" %>
