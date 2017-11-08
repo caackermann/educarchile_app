@@ -12,7 +12,8 @@
 </p>
 <% if user_signed_in? %>
   <% if @project.user.id == current_user.id %>
-    <%= link_to 'Editar', edit_project_path(@project) %>
+    <%= link_to 'Editar |', edit_project_path(@project) %>
+    <%= link_to 'Volver', projects_path %>
   <% end %>
 <% end %>
 </div>
