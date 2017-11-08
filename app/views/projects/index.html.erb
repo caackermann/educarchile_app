@@ -1,33 +1,28 @@
-
-<div >
-  
-  <h1>Todos los proyectos</h1>
-  
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th class="th">Nombre</th>
-        <th>Creado Por</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @projects.each do |project| %>
-        <tr>
-          <td><%= project.name %></td>
-          <td><%= project.user.email %></td>
-          <td><%= link_to 'Ver Detalles', project %></td>
-  
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <br>
-  <div class="center">
-    <% if user_signed_in?%>
-      <%= link_to 'Crear nuevo proyecto', new_project_path %>
-    <%end%>
+  <div class="projects">
+    <% if @projects.any? %>
+    <h1>Todos los proyectos</h1>
+    
+    
+        <% @projects.each do |project| %>
+        <div class="card">
+          <div class="content">
+            <span class="title"><%= project.name %></span>
+            <p><%= project.description %></p>
+          </div>
+          <div class="action">
+            <%= link_to "Ver más", project, class: "ripple" %>
+          </div>
+        </div>
+          
+        <% end %>
+   
+    
+    <br>
+    <div class="center">
+      <% if user_signed_in?%>
+        <%= link_to 'Crear nuevo proyecto', new_project_path %>
+      <%end%>
+    </div>
+  <% end %>
   </div>
-  </div>
+  
