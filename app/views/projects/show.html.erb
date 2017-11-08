@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h1>Proyecto <%= @project.name %></h1>
 
+<div class="center">
 <p>
-  <strong>Name:</strong>
-  <%= @project.name %>
+  <strong>Creado por: </strong>
+  <%= @project.user.name%> <%=@project.user.lastname%>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user %>
-</p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Editar', edit_project_path(@project) %>
+</div>
