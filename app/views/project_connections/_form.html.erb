@@ -1,0 +1,32 @@
+<%= form_with(model: project_connection, local: true) do |form| %>
+  <% if project_connection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project_connection.errors.count, "error") %> prohibited this project_connection from being saved:</h2>
+
+      <ul>
+      <% project_connection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :needs %>
+    <%= form.text_area :needs, id: :project_connection_needs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ideas %>
+    <%= form.text_area :ideas, id: :project_connection_ideas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_id %>
+    <%= form.text_field :project_id, id: :project_connection_project_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

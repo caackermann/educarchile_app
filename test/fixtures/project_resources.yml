@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  disponibility: false
+  comment: MyText
+  place: 1
+  project_planification: one
+
+two:
+  name: MyString
+  disponibility: false
+  comment: MyText
+  place: 1
+  project_planification: two

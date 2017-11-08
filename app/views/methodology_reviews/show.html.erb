@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @methodology_review.stars %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @methodology_review.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @methodology_review.user %>
+</p>
+
+<p>
+  <strong>Methodology:</strong>
+  <%= @methodology_review.methodology %>
+</p>
+
+<%= link_to 'Edit', edit_methodology_review_path(@methodology_review) %> |
+<%= link_to 'Back', methodology_reviews_path %>

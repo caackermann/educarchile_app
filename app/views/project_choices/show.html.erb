@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Desicion:</strong>
+  <%= @project_choice.desicion %>
+</p>
+
+<p>
+  <strong>P1:</strong>
+  <%= @project_choice.p1 %>
+</p>
+
+<p>
+  <strong>P2:</strong>
+  <%= @project_choice.p2 %>
+</p>
+
+<p>
+  <strong>P3:</strong>
+  <%= @project_choice.p3 %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_choice.project %>
+</p>
+
+<%= link_to 'Edit', edit_project_choice_path(@project_choice) %> |
+<%= link_to 'Back', project_choices_path %>

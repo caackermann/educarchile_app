@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Methodology Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason</th>
+      <th>Utility</th>
+      <th>Pertinence</th>
+      <th>Relevance</th>
+      <th>Methodology</th>
+      <th>Project connection</th>
+      <th>Comentary</th>
+      <th>Methodology chosen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @methodology_evaluations.each do |methodology_evaluation| %>
+      <tr>
+        <td><%= methodology_evaluation.reason %></td>
+        <td><%= methodology_evaluation.utility %></td>
+        <td><%= methodology_evaluation.pertinence %></td>
+        <td><%= methodology_evaluation.relevance %></td>
+        <td><%= methodology_evaluation.methodology %></td>
+        <td><%= methodology_evaluation.project_connection %></td>
+        <td><%= methodology_evaluation.comentary %></td>
+        <td><%= methodology_evaluation.methodology_chosen %></td>
+        <td><%= link_to 'Show', methodology_evaluation %></td>
+        <td><%= link_to 'Edit', edit_methodology_evaluation_path(methodology_evaluation) %></td>
+        <td><%= link_to 'Destroy', methodology_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Methodology Evaluation', new_methodology_evaluation_path %>

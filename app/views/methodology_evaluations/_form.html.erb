@@ -1,0 +1,57 @@
+<%= form_with(model: methodology_evaluation, local: true) do |form| %>
+  <% if methodology_evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(methodology_evaluation.errors.count, "error") %> prohibited this methodology_evaluation from being saved:</h2>
+
+      <ul>
+      <% methodology_evaluation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_area :reason, id: :methodology_evaluation_reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :utility %>
+    <%= form.number_field :utility, id: :methodology_evaluation_utility %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pertinence %>
+    <%= form.number_field :pertinence, id: :methodology_evaluation_pertinence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :relevance %>
+    <%= form.number_field :relevance, id: :methodology_evaluation_relevance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :methodology_id %>
+    <%= form.text_field :methodology_id, id: :methodology_evaluation_methodology_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_connection_id %>
+    <%= form.text_field :project_connection_id, id: :methodology_evaluation_project_connection_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentary %>
+    <%= form.text_field :comentary, id: :methodology_evaluation_comentary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :methodology_chosen %>
+    <%= form.text_area :methodology_chosen, id: :methodology_evaluation_methodology_chosen %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

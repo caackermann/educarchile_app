@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  moment: MyString
+  audience: MyText
+  channel: MyText
+  object: MyText
+  project_planification: one
+
+two:
+  moment: MyString
+  audience: MyText
+  channel: MyText
+  object: MyText
+  project_planification: two

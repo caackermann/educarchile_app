@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Methodology Reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stars</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Methodology</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @methodology_reviews.each do |methodology_review| %>
+      <tr>
+        <td><%= methodology_review.stars %></td>
+        <td><%= methodology_review.description %></td>
+        <td><%= methodology_review.user %></td>
+        <td><%= methodology_review.methodology %></td>
+        <td><%= link_to 'Show', methodology_review %></td>
+        <td><%= link_to 'Edit', edit_methodology_review_path(methodology_review) %></td>
+        <td><%= link_to 'Destroy', methodology_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Methodology Review', new_methodology_review_path %>
