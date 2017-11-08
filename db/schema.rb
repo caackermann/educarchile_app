@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171108020355) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -113,17 +112,6 @@ ActiveRecord::Schema.define(version: 20171108020355) do
     t.index ["project_planification_id"], name: "index_project_resources_on_project_planification_id"
   end
 
-  create_table "project_reviews", force: :cascade do |t|
-    t.integer "stars"
-    t.string "description"
-    t.bigint "user_id"
-    t.bigint "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_project_reviews_on_project_id"
-    t.index ["user_id"], name: "index_project_reviews_on_user_id"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id"
@@ -161,8 +149,5 @@ ActiveRecord::Schema.define(version: 20171108020355) do
   add_foreign_key "project_implementations", "projects"
   add_foreign_key "project_planifications", "projects"
   add_foreign_key "project_resources", "project_planifications"
-  add_foreign_key "project_reviews", "projects"
-  add_foreign_key "project_reviews", "users"
-
   add_foreign_key "projects", "users"
 end
