@@ -5,8 +5,12 @@
     
         <% @projects.each do |project| %>
         <div class="card">
-          <div class="content">
-            <span class="title"><%= project.name %></span>
+          
+            <div class="image">
+                <span class="title"><%= project.name %></span>
+                <button class="fab ripple"></button>
+            </div>
+            <div class="content">
             <p><%= project.description %></p>
           </div>
           <div class="action">
