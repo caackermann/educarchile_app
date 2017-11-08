@@ -1,0 +1,16 @@
+<tr class="nested-fields">
+  <td><%= f.select :methodology_id,
+                   ['Elige una metodología...'] | Methodology.all.map { |m| [m.name, "#{m.id}"] },
+                   {}, {autofocus: 'true', class: 'form-control'}%></td>
+
+  <td><%= f.text_field :reason, label: false%></td>
+  <td><%= f.select :utility, [1, 2, 3, 4, 5], {},
+                   {autofocus: 'true', class: 'form-control'} %></td>
+  <td><%= f.select :pertinence, [1, 2, 3, 4, 5], {},
+                   {autofocus: 'true', class: 'form-control'}%></td>
+  <td><%= f.select :relevance, [1, 2, 3, 4, 5], {},
+                   {autofocus: 'true', class: 'form-control'}%></td>
+  <td>
+    <%= link_to_remove_association "Remover Evaluación", f, class: 'btn btn-primary btn-xs' %>
+  </td>
+</tr>
