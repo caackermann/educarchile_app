@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @methodology_evaluation.reason %>
+</p>
+
+<p>
+  <strong>Utility:</strong>
+  <%= @methodology_evaluation.utility %>
+</p>
+
+<p>
+  <strong>Pertinence:</strong>
+  <%= @methodology_evaluation.pertinence %>
+</p>
+
+<p>
+  <strong>Relevance:</strong>
+  <%= @methodology_evaluation.relevance %>
+</p>
+
+<p>
+  <strong>Methodology:</strong>
+  <%= @methodology_evaluation.methodology %>
+</p>
+
+<p>
+  <strong>Project connection:</strong>
+  <%= @methodology_evaluation.project_connection %>
+</p>
+
+<p>
+  <strong>Comentary:</strong>
+  <%= @methodology_evaluation.comentary %>
+</p>
+
+<p>
+  <strong>Methodology chosen:</strong>
+  <%= @methodology_evaluation.methodology_chosen %>
+</p>
+
+<%= link_to 'Edit', edit_methodology_evaluation_path(@methodology_evaluation) %> |
+<%= link_to 'Back', methodology_evaluations_path %>

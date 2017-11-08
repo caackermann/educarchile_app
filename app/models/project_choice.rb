@@ -1,0 +1,2 @@
+class ProjectChoice < ApplicationRecord
+end

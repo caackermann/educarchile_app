@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :project_choices
+  resources :methodology_evaluations
+  resources :project_planifications
+  resources :project_implementations
+  resources :project_connections
+  resources :methodology_reviews
+  resources :methodologies
+  resources :project_reviews
   resources :projects
   root 'static_pages#home'
   get 'static_pages/home'

@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+
     @project = current_user.projects.build(project_params)
 
     respond_to do |format|
