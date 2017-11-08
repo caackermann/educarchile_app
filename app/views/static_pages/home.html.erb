@@ -1,6 +1,6 @@
 <div class="center jumbotron">
     <% if user_signed_in? %>
-    <h1 style="font-size: 40px;">Bienvenido, <%= current_user.name %></h1>
+    <h1 style="font-size: 40px;">Bienvenido, <%= current_user.name %> <%= current_user.lastname %></h1>
       <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%>
 <% else %>
   <%= yield %>
