@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171108020355) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -162,5 +163,6 @@ ActiveRecord::Schema.define(version: 20171108020355) do
   add_foreign_key "project_resources", "project_planifications"
   add_foreign_key "project_reviews", "projects"
   add_foreign_key "project_reviews", "users"
+
   add_foreign_key "projects", "users"
 end
