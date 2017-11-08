@@ -1,0 +1,14 @@
+<div class="center jumbotron">
+    <% if user_signed_in? %>
+    <h1 style="font-size: 40px;">Bienvenido</h1>
+      <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%>
+<% else %>
+  <%= yield %>
+    <h1>Bienvenido a EducarChile App</h1>
+    <h2>
+      Acá podrás investigar sobre metodologías de innovacion en educacion, y  aplicarlas en tus proyectos
+    </h2>
+    <%= link_to "Crear una cuenta", new_user_path, class: "btn btn-lg btn-custom" %>
+
+  <% end %>
+</div>
