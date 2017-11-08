@@ -1,4 +1,4 @@
-class ProjectConnectionsController < ApplicationController
+class ProjectReviewsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])

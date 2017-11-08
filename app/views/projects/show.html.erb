@@ -26,7 +26,7 @@
 
   <hr>
   <p>Agregar Comentario</p>
-  <%= simple_form([@project, @project.project_reviews.build]) do |f| %>
+  <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
     <%= f.text_area :content %>
     <%= submit_tag "Add" %>
   <% end %>
