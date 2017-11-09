@@ -14,21 +14,25 @@ class ProjectImplementationsController < ApplicationController
 
   # GET /project_implementations/new
   def new
+    @project = Project.find(params[:project_id])
     @project_implementation = ProjectImplementation.new
+
   end
 
   # GET /project_implementations/1/edit
   def edit
+    @project = Project.find(params[:project_id])
+    @project_implementation = @project.project_implementation
   end
 
   # POST /project_implementations
   # POST /project_implementations.json
   def create
-    @project_implementation = ProjectImplementation.new(project_implementation_params)
-
+    @project = Project.find(params[:project_id])
+    @project_implementation = @project.build_project_implementation(project_implementation_params)
     respond_to do |format|
-      if @project_implementation.save
-        format.html { redirect_to @project_implementation, notice: 'Project implementation was successfully created.' }
+      if @project_implementation.save!
+        format.html { redirect_to @project, notice: 'Project implementation was successfully created.' }
         format.json { render :show, status: :created, location: @project_implementation }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ProjectImplementationsController < ApplicationController
   def update
     respond_to do |format|
       if @project_implementation.update(project_implementation_params)
-        format.html { redirect_to @project_implementation, notice: 'Project implementation was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Project implementation was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_implementation }
       else
         format.html { render :edit }
@@ -64,11 +68,12 @@ class ProjectImplementationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project_implementation
-      @project_implementation = ProjectImplementation.find(params[:id])
+      @project = Project.find(params[:project_id])
+      @project_implementation = @project.project_implementation
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_implementation_params
-      params.require(:project_implementation).permit(:day, :observations, :advances, :conflicts, :new_ideas, :project_id)
+      params.require(:project_implementation).permit(:project_id, project_bitacoras_attributes: ProjectBitacora.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

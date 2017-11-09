@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109051940) do
+ActiveRecord::Schema.define(version: 20171109212006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20171109051940) do
     t.datetime "updated_at", null: false
     t.index ["methodology_id"], name: "index_methodology_reviews_on_methodology_id"
     t.index ["user_id"], name: "index_methodology_reviews_on_user_id"
+  end
+
+  create_table "project_bitacoras", force: :cascade do |t|
+    t.date "day"
+    t.text "objetives"
+    t.text "observations"
+    t.text "advances"
+    t.text "conflicts"
+    t.text "new_ideas"
+    t.bigint "project_implementation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_implementation_id"], name: "index_project_bitacoras_on_project_implementation_id"
   end
 
   create_table "project_choices", force: :cascade do |t|
@@ -91,11 +104,6 @@ ActiveRecord::Schema.define(version: 20171109051940) do
   end
 
   create_table "project_implementations", force: :cascade do |t|
-    t.date "day"
-    t.text "observations"
-    t.text "advances"
-    t.text "conflicts"
-    t.text "new_ideas"
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -167,6 +175,7 @@ ActiveRecord::Schema.define(version: 20171109051940) do
   add_foreign_key "methodology_evaluations", "project_connections"
   add_foreign_key "methodology_reviews", "methodologies"
   add_foreign_key "methodology_reviews", "users"
+  add_foreign_key "project_bitacoras", "project_implementations"
   add_foreign_key "project_choices", "projects"
   add_foreign_key "project_conditions", "project_planifications"
   add_foreign_key "project_connections", "projects"

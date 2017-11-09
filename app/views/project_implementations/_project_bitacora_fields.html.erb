@@ -1,0 +1,34 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :day %>
+    <%= f.date_select :day, id: :project_implementation_day %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objetives %>
+    <%= f.text_area :objetives, id: :project_implementation_objetives %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observations %>
+    <%= f.text_area :observations, id: :project_implementation_observations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :advances %>
+    <%= f.text_area :advances, id: :project_implementation_advances %>
+  </div>
+
+  <div class="field">
+    <%= f.label :conflicts %>
+    <%= f.text_area :conflicts, id: :project_implementation_conflicts %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_ideas %>
+    <%= f.text_area :new_ideas, id: :project_implementation_new_ideas %>
+  </div>
+
+  <%= link_to_remove_association "Eliminar Bitacora", f, class: 'btn btn-primary btn-xs' %>
+
+</div>
