@@ -16,3 +16,33 @@
   <% end %>
 <% end %>
 </div>
+
+<div>
+  <% if @project.project_reviews.any? %>
+    <h4> Reviews </h4>
+    <%= render @project.project_reviews %>
+  <% end %>
+
+  <hr>
+  <p>Agregar Comentario</p>
+  <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
+    <div id="star-rating"></div>
+    <%= f.text_area  :content %>
+    <%= submit_tag "Add" %>
+  <% end %>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'project_review[rating]'
+  });
+</script>
