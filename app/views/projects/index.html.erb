@@ -22,11 +22,14 @@
    
     
     <br>
-    <div class="center">
+    
+  <% end %>
+  <div class="center">
+      <h1>No existen proyectos todavía</h1>
       <% if user_signed_in?%>
+      
         <%= link_to 'Crear nuevo proyecto', new_project_path %>
       <%end%>
     </div>
-  <% end %>
   </div>
   

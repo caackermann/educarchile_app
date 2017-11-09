@@ -19,7 +19,7 @@
         </div>
         <div class="right">
             <h3>Mis proyectos </h3><br>
-    
+          <% if @user.projects.any? %>
             <table class="table">
               <thead>
                 <tr>
@@ -40,7 +40,10 @@
                 <% end %>
               </tbody>
             </table>
-    
+            
+            <% else%>
+            <p>No haz creado proyectos todavía</p>
+            <% end %>
             <br>
           </div>
         

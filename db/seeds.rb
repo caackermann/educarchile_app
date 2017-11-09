@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+################################### Users ####################################
+u1 = User.new(
+  name:                  'Carlos',
+  lastname:              'Salame',
+  email:                 'csalame@uc.cl',
+  password:              '123123',
+  password_confirmation: '123123'
+)
+u1.save!
 
 m1 = Methodology.new(
     name:                  'Cultura de aprendizaje colaborativo',
@@ -55,4 +64,3 @@ m1 = Methodology.new(
     link:                  'https://www.escuelaenmovimiento.cl/metodologias-innovadoras/pre-textos-el-arte-como-exploracion'
   )
   m8.save!
-  

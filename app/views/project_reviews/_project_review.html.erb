@@ -1,0 +1,8 @@
+ <div>
+   <div clas
+  <div class="star-rating" data-score= <%= project_review.rating %> ></div>
+  <p>
+    <%= project_review.content %>
+    <%= link_to "Delete", project_project_review_path(project_review.project, project_review), method: :delete %>
+  </p>
+</div>

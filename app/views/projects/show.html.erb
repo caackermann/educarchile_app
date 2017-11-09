@@ -1,19 +1,43 @@
-<p id="notice"><%= notice %></p>
 <h1>Proyecto <%= @project.name %></h1>
 
-<div class="center">
-<p>
-  <strong>Creado por: </strong>
-  <%= @project.user.name%> <%=@project.user.lastname%>
-</p>
-<p>
-  <strong>Descripción: </strong><br>
-  <%= @project.description%>
-</p>
-<% if user_signed_in? %>
-  <% if @project.user.id == current_user.id %>
-    <%= link_to 'Editar |', edit_project_path(@project) %>
-    <%= link_to 'Volver', projects_path %>
-  <% end %>
-<% end %>
+
+<div class="text-left">
+  <div class="center"><div class="star-rating" data-score= <%= @project.avg_rating %> ></div> <br></div>
+    
+    <p><strong>Creado por: </strong> <%= @project.user.name%> <%=@project.user.lastname%></p>
+    <p><strong>Descripción: </strong><br><%= @project.description%></p>
+    <% if user_signed_in? %>
+      <% if @project.user.id == current_user.id %>
+        <%= link_to 'Editar |', edit_project_path(@project) %>
+        <%= link_to 'Volver', projects_path %>
+      <% end %>
+    <% end %>
 </div>
+<div>
+    <% if @project.project_reviews.any? %>
+      <h4> Reviews </h4>
+      <%= render @project.project_reviews %>
+    <% end %>
+  <hr>
+  <p>Agregar Comentario</p>
+  <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
+    <div id="star-rating"></div>
+      <%= f.text_area  :content %>
+      <%= submit_tag "Add" %>
+  <% end %>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'project_review[rating]'
+  });
+</script>
