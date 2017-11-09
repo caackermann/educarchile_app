@@ -33,7 +33,7 @@ class ProjectPlanificationsController < ApplicationController
 
     respond_to do |format|
       if @project_planification.save
-        format.html { redirect_to new_project_project_evaluation_path(@project), notice: 'Project planification was successfully created.' }
+        format.html { redirect_to new_project_project_implementation_path(@project), notice: 'Project planification was successfully created.' }
         format.json { render :show, status: :created, location: @project_planification }
       else
         format.html { render :new }
