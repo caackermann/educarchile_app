@@ -1,12 +1,16 @@
 class ProjectReviewsController < ApplicationController
+  
 
   def create
     @project = Project.find(params[:project_id])
     @project_review = @project.project_reviews.build(project_reviews_params)
     @project_review.user = current_user
-    @project_review.save
-
-    redirect_to @project
+    if @project_review.rating.nil?
+      @project_review.rating = 1
+    end
+    if @project_review.save!
+        redirect_to @project
+    end
   end
 
   def destroy
