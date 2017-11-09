@@ -31,7 +31,7 @@
 
     <tbody class ="project_resources">
       <%= form.simple_fields_for :project_resources do |builder| %>
-      <%= render partial: 'project_resource_fields', f: builder %>
+      <%= render 'project_resource_fields', f: builder %>
       <% end %>
     </tbody>
   </table>
@@ -53,7 +53,7 @@
 
     <tbody class ="project_conditions">
       <%= form.simple_fields_for :project_conditions do |builder| %>
-      <%= render partial: 'project_condition_fields',f: builder %>
+      <%= render 'project_condition_fields',f: builder %>
       <% end %>
     </tbody>
   </table>

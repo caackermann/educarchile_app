@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-11-09
+  objetives: MyText
+  observations: MyText
+  advances: MyText
+  conflicts: MyText
+  new_ideas: MyText
+  project_implementation: one
+
+two:
+  day: 2017-11-09
+  objetives: MyText
+  observations: MyText
+  advances: MyText
+  conflicts: MyText
+  new_ideas: MyText
+  project_implementation: two
