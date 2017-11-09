@@ -14,21 +14,25 @@ class ProjectEvaluationsController < ApplicationController
 
   # GET /project_evaluations/new
   def new
+    @project = Project.find(params[:project_id])
     @project_evaluation = ProjectEvaluation.new
   end
 
   # GET /project_evaluations/1/edit
   def edit
+    @project = Project.find(params[:project_id])
+    @project_evaluation = @project.project_evaluation
   end
 
   # POST /project_evaluations
   # POST /project_evaluations.json
   def create
-    @project_evaluation = ProjectEvaluation.new(project_evaluation_params)
+    @project = Project.find(params[:project_id])
+    @project_evaluation = @project.build_project_evaluation(project_evaluation_params)
 
     respond_to do |format|
       if @project_evaluation.save
-        format.html { redirect_to @project_evaluation, notice: 'Project evaluation was successfully created.' }
+        format.html { redirect_to @project, notice: 'Project evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @project_evaluation }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ProjectEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @project_evaluation.update(project_evaluation_params)
-        format.html { redirect_to @project_evaluation, notice: 'Project evaluation was successfully updated.' }
+        format.html { redirect_to edit_project_project_evaluation_path(@project), notice: 'Project evaluation was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_evaluation }
       else
         format.html { render :edit }

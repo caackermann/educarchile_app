@@ -2,9 +2,9 @@
 <%= simple_form_for([@project, @project.build_project_connection])  do |form| %>
 
   <div class="field">
-    <%= form.label "Tras la revisión del material presentado ¿qué necesidades, problemas o desafíos de
-tu escuela puede(n) ayudar a solucionar la(s) metodología(s)
-revisada(s)?" %>
+    <%= form.label :needs, "Tras la revisión del material presentado ¿qué
+      necesidades, problemas o desafíos de tu escuela puede(n) ayudar a
+      solucionar la(s) metodología(s) revisada(s)?" %>
     <%= form.text_area :needs, id: :project_connection_needs %>
   </div>
   <br>

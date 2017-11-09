@@ -29,15 +29,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, :only => [:show]
 
-  resources :projects do
-    resources :project_connections
-    resources :project_choices
-    resources :project_planifications
-    resources :project_implementations
-    resources :methodology_evaluations
-    resources :project_reviews
-    resources :methodologies
-  end
+  resources :project_evaluations
 
   resources :methodologies do
     resources :methodology_reviews
