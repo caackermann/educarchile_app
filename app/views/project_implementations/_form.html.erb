@@ -1,4 +1,6 @@
-<%= form_with(model: project_implementation, local: true) do |form| %>
+
+
+<%= form_for [@project, @project.build_project_implementation] do |form| %>
   <% if project_implementation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project_implementation.errors.count, "error") %> prohibited this project_implementation from being saved:</h2>
@@ -12,34 +14,68 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :day %>
-    <%= form.date_select :day, id: :project_implementation_day %>
+    <%= form.label :day_1, "Día de comienzo de la actividad"%>
+    <%= form.date_select :day_1, id: :project_implementation_day_1 %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :day_2 , "Día después de comenzada la actividad"%>
+    <%= form.date_select :day_2, id: :project_implementation_day_2 %>
   </div>
 
   <div class="field">
-    <%= form.label :observations %>
+    <%= form.label :before, "Indica qué cambios y/o logros buscas obtener con esta actividad específica, usando la(s) metodología(s) elegida(s), esto te ayuda a orientar la actividada para luego analizar si resultó o no." %>
+    <%= form.date_select :before, id: :project_implementation_before %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :observations, "Describe aquí las condiciones bajo las cuales se desarrolló la
+actividad (por ejemplo: clima escolar/aula, alguna situación
+específica dentro o fuera de clase/escuela, etcétera). Cualquier
+acontecimiento o reflexión (positiva o negativa) que parezca
+importante dejar registrada (esto te permitirá pensar en medidas
+futuras que te ayuden al logro de la implementación)." %>
     <%= form.text_area :observations, id: :project_implementation_observations %>
   </div>
 
   <div class="field">
-    <%= form.label :advances %>
+    <%= form.label :advances, "Indica si se cumplieron los objetivos que te habías propuesto, por
+qué, en qué lo notas. Indica cambios positivos (por ejemplo, en
+el/los ejecutores de la metodología y/o en el público objetivo).
+Pon atención a los procesos de participación y colaboración de
+los participantes, considerando por ejemplo la heterogeneidad
+del grupo. Reflexiona sobre los efectos provocados: motivación,
+interés, desarrollo de habilidades (socio cognitivas, disciplinarias
+y tecnológicas pretendidas), entre otros. Aunque los cambios no
+ocurran de un día para el otro, cada pequeño avance es relevante
+para ¡poder potenciarlos!" %>
     <%= form.text_area :advances, id: :project_implementation_advances %>
   </div>
 
   <div class="field">
-    <%= form.label :conflicts %>
+    <%= form.label :conflicts, "Indica cambios negativos, retrocesos o dificultades específicas.
+Reflexiona, por ejemplo, si los problemas surgieron en razón de
+una condición aislada y por lo tanto momentánea o si es algo
+más bien permanente. (No siempre todo sale como lo planeado
+y eso es normal. Lo importante es reflexionar sobre estos
+acontecimientos para poder buscar soluciones). " %>
     <%= form.text_area :conflicts, id: :project_implementation_conflicts %>
   </div>
 
   <div class="field">
-    <%= form.label :new_ideas %>
+    <%= form.label :new_ideas, "Indica en este espacio alguna idea que pueda ayudar en la
+próxima actividad. Por ejemplo, ¿qué se puede mejorar?, ¿cómo
+se podría trabajar/enfrentar los obstáculos en una próxima
+evento/clase?, ¿cómo obtener provecho de los obstáculos y/o
+oportunidades que surgieron? (Este tipo de reflexión es
+importante porque te ayuda a pensar cómo puedes ir mejorando
+tus estrategias para ¡lograr tus objetivos!)." %>
     <%= form.text_area :new_ideas, id: :project_implementation_new_ideas %>
   </div>
 
-  <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field :project_id, id: :project_implementation_project_id %>
-  </div>
+  
 
   <div class="actions">
     <%= form.submit %>

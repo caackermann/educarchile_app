@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109051940) do
+ActiveRecord::Schema.define(version: 20171109184311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20171109051940) do
   end
 
   create_table "project_implementations", force: :cascade do |t|
-    t.date "day"
     t.text "observations"
     t.text "advances"
     t.text "conflicts"
@@ -99,6 +98,9 @@ ActiveRecord::Schema.define(version: 20171109051940) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "day_1"
+    t.date "day_2"
+    t.text "before"
     t.index ["project_id"], name: "index_project_implementations_on_project_id"
   end
 

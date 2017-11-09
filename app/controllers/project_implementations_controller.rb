@@ -14,6 +14,7 @@ class ProjectImplementationsController < ApplicationController
 
   # GET /project_implementations/new
   def new
+    @project = Project.find(params[:project_id])
     @project_implementation = ProjectImplementation.new
   end
 
@@ -24,7 +25,8 @@ class ProjectImplementationsController < ApplicationController
   # POST /project_implementations
   # POST /project_implementations.json
   def create
-    @project_implementation = ProjectImplementation.new(project_implementation_params)
+    @project = Project.find(params[:project_id])
+    @project_implementation = @project.build_project_implementation(project_implementation_params)
 
     respond_to do |format|
       if @project_implementation.save
@@ -69,6 +71,6 @@ class ProjectImplementationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_implementation_params
-      params.require(:project_implementation).permit(:day, :observations, :advances, :conflicts, :new_ideas, :project_id)
+      params.require(:project_implementation).permit(:day_1, :day_2, :before, :observations, :advances, :conflicts, :new_ideas, :project_id)
     end
 end
