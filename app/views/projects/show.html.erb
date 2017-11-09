@@ -27,7 +27,23 @@
   <hr>
   <p>Agregar Comentario</p>
   <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
-    <%= f.text_area :content %>
+    <div id="star-rating"></div>
+    <%= f.text_area  :content %>
     <%= submit_tag "Add" %>
   <% end %>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'project_review[rating]'
+  });
+</script>
