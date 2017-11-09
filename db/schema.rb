@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108220441) do
+ActiveRecord::Schema.define(version: 20171109051940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,17 @@ ActiveRecord::Schema.define(version: 20171108220441) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "methodology_id"
     t.index ["project_id"], name: "index_project_choices_on_project_id"
+  end
+
+  create_table "project_conditions", force: :cascade do |t|
+    t.string "name"
+    t.text "comment"
+    t.bigint "project_planification_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_planification_id"], name: "index_project_conditions_on_project_planification_id"
   end
 
   create_table "project_connections", force: :cascade do |t|
@@ -98,6 +108,8 @@ ActiveRecord::Schema.define(version: 20171108220441) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "startdate"
+    t.datetime "finishdate"
     t.index ["project_id"], name: "index_project_planifications_on_project_id"
   end
 
@@ -145,6 +157,7 @@ ActiveRecord::Schema.define(version: 20171108220441) do
   add_foreign_key "methodology_reviews", "methodologies"
   add_foreign_key "methodology_reviews", "users"
   add_foreign_key "project_choices", "projects"
+  add_foreign_key "project_conditions", "project_planifications"
   add_foreign_key "project_connections", "projects"
   add_foreign_key "project_diffusions", "project_planifications"
   add_foreign_key "project_implementations", "projects"

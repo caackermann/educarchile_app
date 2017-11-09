@@ -1,13 +1,28 @@
 Rails.application.routes.draw do
-  resources :project_choices
-  resources :methodology_evaluations
-  resources :project_planifications
-  resources :project_implementations
-  resources :project_connections
-  resources :methodology_reviews
+
   resources :methodologies
-  resources :project_reviews
-  resources :projects
+
+
+  resources :projects do
+
+    resources :project_connections do
+      resources :methodology_evaluations
+    end
+
+    resources :project_planifications do
+      resources :project_resources
+      resources :project_difusions
+      resources :project_conditions
+    end
+
+    resources :project_choices
+    resources :project_communications
+    resources :project_evaluations
+    resources :project_implementations
+    resources :project_reviews
+    resources :methodologies
+  end
+
   root 'static_pages#home'
   get 'static_pages/home'
   devise_for :users

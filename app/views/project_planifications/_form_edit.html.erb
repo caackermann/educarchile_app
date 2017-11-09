@@ -1,20 +1,20 @@
-<%= simple_form_for([@project, @project.build_project_planification]) do |form| %>
-  <%= form.error_notification %>
+<%= simple_form_for([@project, @project.project_planification]) do |f| %>
+  <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= form.input :name %>
+    <%= f.input :name %>
   </div>
 
   <div class="form-inputs">
-    <%= form.input :place %>
+    <%= f.input :place %>
   </div>
 
   <div class="form-inputs">
-    <%= form.datetime_select :startdate %>
+    <%= f.datetime_select :startdate %>
   </div>
 
   <div class="form-inputs">
-    <%= form.datetime_select :finishdate %>
+    <%= f.datetime_select :finishdate %>
   </div>
 
   <h2>Recursos Físicos y Financieros</h2>
@@ -30,14 +30,14 @@
     </thead>
 
     <tbody class ="project_resources">
-      <%= form.simple_fields_for :project_resources do |builder| %>
+      <%= f.simple_fields_for :project_resources do |builder| %>
       <%= render partial: 'project_resource_fields', f: builder %>
       <% end %>
     </tbody>
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-primary', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Agregar Recurso', f, :project_resources, class: 'btn btn-primary', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
   </div>
 
   <h3>Otras condiciones necesarias <br> (autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h3>
@@ -52,14 +52,14 @@
     </thead>
 
     <tbody class ="project_conditions">
-      <%= form.simple_fields_for :project_conditions do |builder| %>
-      <%= render partial: 'project_condition_fields',f: builder %>
+      <%= f.simple_fields_for :project_conditions do |builder| %>
+      <%= render partial: 'project_condition_fields', f: builder %>
       <% end %>
     </tbody>
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-primary', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Agregar Recurso', f, :project_conditions, class: 'btn btn-primary', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
   </div>
 
 
@@ -67,7 +67,7 @@
 
 
 <div class="form-actions">
-    <%= form.button :submit %>
+    <%= f.button :submit %>
 
 </div>
 

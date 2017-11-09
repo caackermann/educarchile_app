@@ -14,21 +14,25 @@ class ProjectConnectionsController < ApplicationController
 
   # GET /project_connections/new
   def new
+    @project = Project.find(params[:project_id])
     @project_connection = ProjectConnection.new
   end
 
   # GET /project_connections/1/edit
   def edit
+    @project = Project.find(params[:project_id])
+    @project_connection = @project.project_connection
   end
 
   # POST /project_connections
   # POST /project_connections.json
   def create
-    @project_connection = ProjectConnection.new(project_connection_params)
+    @project = Project.find(params[:project_id])
+    @project_connection = @project.build_project_connection(project_connection_params)
 
     respond_to do |format|
       if @project_connection.save
-        format.html { redirect_to @project_connection, notice: 'Project connection was successfully created.' }
+        format.html { redirect_to new_project_project_choice_path(@project), notice: 'Project connection was successfully created.' }
         format.json { render :show, status: :created, location: @project_connection }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ProjectConnectionsController < ApplicationController
   def update
     respond_to do |format|
       if @project_connection.update(project_connection_params)
-        format.html { redirect_to @project_connection, notice: 'Project connection was successfully updated.' }
+        format.html { redirect_to edit_project_project_choice_path(@project), notice: 'Project connection was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_connection }
       else
         format.html { render :edit }
@@ -64,7 +68,8 @@ class ProjectConnectionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project_connection
-      @project_connection = ProjectConnection.find(params[:id])
+      @project = Project.find(params[:project_id])
+      @project_connection = @project.project_connection
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
