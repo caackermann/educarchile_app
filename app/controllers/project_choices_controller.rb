@@ -14,21 +14,26 @@ class ProjectChoicesController < ApplicationController
 
   # GET /project_choices/new
   def new
+    @project = Project.find(params[:project_id])
     @project_choice = ProjectChoice.new
+
   end
 
   # GET /project_choices/1/edit
   def edit
+    @project = Project.find(params[:project_id])
+    @project_choice = @project.project_choice
   end
 
   # POST /project_choices
   # POST /project_choices.json
   def create
-    @project_choice = ProjectChoice.new(project_choice_params)
+    @project = Project.find(params[:project_id])
+    @project_choice = @project.build_project_choice(project_choice_params)
 
     respond_to do |format|
       if @project_choice.save
-        format.html { redirect_to @project_choice, notice: 'Project choice was successfully created.' }
+        format.html { redirect_to new_project_project_planification_path(@project), notice: 'Project choice was successfully created.' }
         format.json { render :show, status: :created, location: @project_choice }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class ProjectChoicesController < ApplicationController
   def update
     respond_to do |format|
       if @project_choice.update(project_choice_params)
-        format.html { redirect_to @project_choice, notice: 'Project choice was successfully updated.' }
+        format.html { redirect_to edit_project_project_planification_path(@project), notice: 'Project choice was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_choice }
       else
         format.html { render :edit }
@@ -64,11 +69,12 @@ class ProjectChoicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project_choice
-      @project_choice = ProjectChoice.find(params[:id])
+      @project = Project.find(params[:project_id])
+      @project_choice = @project.project_choice
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_choice_params
-      params.require(:project_choice).permit(:desicion, :p1, :p2, :p3, :project)
+      params.require(:project_choice).permit(:desicion, :p1, :p2, :p3, :project_id)
     end
 end
