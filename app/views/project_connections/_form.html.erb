@@ -1,32 +1,46 @@
-<%= form_with(model: project_connection, local: true) do |form| %>
-  <% if project_connection.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project_connection.errors.count, "error") %> prohibited this project_connection from being saved:</h2>
-
-      <ul>
-      <% project_connection.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="center">
+<%= simple_form_for([@project, @project.build_project_connection]) do |form| %>
 
   <div class="field">
-    <%= form.label :needs %>
+    <%= form.label "Tras la revisión del material presentado ¿qué necesidades, problemas o desafíos de
+tu escuela puede(n) ayudar a solucionar la(s) metodología(s)
+revisada(s)?" %>
     <%= form.text_area :needs, id: :project_connection_needs %>
   </div>
+  <br>
+  <p><strong> Escoja una metodología y lleve a cabo su evaluación</strong> </p>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Metodología</th>
+          <th>Comentarios</th>
+          <th>Utilidad</th>
+          <th>Pertinencia</th>
+          <th>Relevancia</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class='methodology_evaluations'>
+        <%= form.simple_fields_for :methodology_evaluations do |builder| %>
+          <%= render 'methodology_evaluation_fields', f: builder %>
+        <% end %>
+      </tbody>
+    </table>
+
+  <br>
 
   <div class="field">
-    <%= form.label :ideas %>
+    <%= form.label "Con lo visto hasta el momento, ¿Qué ideas te surgen?,
+¿qué acciones crees que podrías realizar?" %>
+    <br>
     <%= form.text_area :ideas, id: :project_connection_ideas %>
   </div>
 
-  <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field :project_id, id: :project_connection_project_id %>
-  </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= link_to_add_association 'Agregar Evaluación', f, :methodology_evaluations, class: 'btn btn-primary', data: { association_insertion_node: '.methodology_evaluations', association_insertion_method: :append } %>
+    <%= form.submit "Agregar", class:"btn btn-lg btn-custom"%>
   </div>
 <% end %>
+<tr>
+</div>

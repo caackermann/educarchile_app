@@ -69,6 +69,8 @@ class ProjectConnectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_connection_params
-      params.require(:project_connection).permit(:needs, :ideas, :project_id)
+      params
+      .require(:project_connection)
+      .permit(:needs, :ideas, :project_id, methodology_evaluations_attributes: MethodologyEvaluation.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

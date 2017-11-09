@@ -5,9 +5,13 @@
     
         <% @projects.each do |project| %>
         <div class="card">
-          <div class="content">
-            <span class="title"><%= project.name %></span>
-            <p><%= project.description %></p>
+          
+            <div class="image">
+                <span class="title"><%= project.name %></span>
+                <button class="fab ripple"></button>
+            </div>
+            <div class="content">
+            <p><%= project.description.truncate_words(20) %></p>
           </div>
           <div class="action">
             <%= link_to "Ver más", project, class: "ripple" %>
@@ -18,11 +22,14 @@
    
     
     <br>
-    <div class="center">
+    
+  <% end %>
+  <div class="center">
+      <h1>No existen proyectos todavía</h1>
       <% if user_signed_in?%>
+      
         <%= link_to 'Crear nuevo proyecto', new_project_path %>
       <%end%>
     </div>
-  <% end %>
   </div>
   
