@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     resources :project_choices
     resources :project_communications
     resources :project_evaluations
-    resources :project_implementations
+    resources :project_implementations do
+      resources :project_bitacoras
+    end
+
     resources :project_reviews
     resources :methodologies
   end
@@ -28,9 +31,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, :only => [:show]
-
-  resources :project_evaluations
-
+  
   resources :methodologies do
     resources :methodology_reviews
   end

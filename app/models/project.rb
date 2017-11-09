@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_one :project_choice
   has_one :project_planification, inverse_of: :project
   has_one :project_evaluation
+  has_one :project_implementation, inverse_of: :project
   has_many   :project_reviews
 
   def avg_rating
