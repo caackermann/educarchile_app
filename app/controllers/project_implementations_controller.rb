@@ -32,7 +32,7 @@ class ProjectImplementationsController < ApplicationController
     @project_implementation = @project.build_project_implementation(project_implementation_params)
     respond_to do |format|
       if @project_implementation.save!
-        format.html { redirect_to @project, notice: 'Project implementation was successfully created.' }
+        format.html { redirect_to new_project_project_evaluation_path(@project), notice: 'Project implementation was successfully created.' }
         format.json { render :show, status: :created, location: @project_implementation }
       else
         format.html { render :new }

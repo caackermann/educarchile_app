@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Project Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Q connect</th>
+      <th>Q choose</th>
+      <th>Q plan</th>
+      <th>Q implement1</th>
+      <th>Q implement2</th>
+      <th>Q implement3</th>
+      <th>Project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_evaluations.each do |project_evaluation| %>
+      <tr>
+        <td><%= project_evaluation.q_connect %></td>
+        <td><%= project_evaluation.q_choose %></td>
+        <td><%= project_evaluation.q_plan %></td>
+        <td><%= project_evaluation.q_implement1 %></td>
+        <td><%= project_evaluation.q_implement2 %></td>
+        <td><%= project_evaluation.q_implement3 %></td>
+        <td><%= project_evaluation.project %></td>
+        <td><%= link_to 'Show', project_evaluation %></td>
+        <td><%= link_to 'Edit', edit_project_evaluation_path(project_evaluation) %></td>
+        <td><%= link_to 'Destroy', project_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project Evaluation', new_project_evaluation_path %>

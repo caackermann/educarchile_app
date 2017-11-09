@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(version: 20171109212006) do
     t.index ["project_planification_id"], name: "index_project_diffusions_on_project_planification_id"
   end
 
+  create_table "project_evaluations", force: :cascade do |t|
+    t.text "q_connect"
+    t.text "q_choose"
+    t.text "q_plan"
+    t.text "q_implement1"
+    t.text "q_implement2"
+    t.text "q_implement3"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_evaluations_on_project_id"
+  end
+
   create_table "project_implementations", force: :cascade do |t|
     t.bigint "project_id"
     t.datetime "created_at", null: false
@@ -180,6 +193,7 @@ ActiveRecord::Schema.define(version: 20171109212006) do
   add_foreign_key "project_conditions", "project_planifications"
   add_foreign_key "project_connections", "projects"
   add_foreign_key "project_diffusions", "project_planifications"
+  add_foreign_key "project_evaluations", "projects"
   add_foreign_key "project_implementations", "projects"
   add_foreign_key "project_planifications", "projects"
   add_foreign_key "project_resources", "project_planifications"
