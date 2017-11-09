@@ -1,0 +1,17 @@
+<%= simple_form_for(@project_evaluation) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :q_connect %>
+    <%= f.input :q_choose %>
+    <%= f.input :q_plan %>
+    <%= f.input :q_implement1 %>
+    <%= f.input :q_implement2 %>
+    <%= f.input :q_implement3 %>
+    <%= f.association :project %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

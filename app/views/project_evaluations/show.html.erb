@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Q connect:</strong>
+  <%= @project_evaluation.q_connect %>
+</p>
+
+<p>
+  <strong>Q choose:</strong>
+  <%= @project_evaluation.q_choose %>
+</p>
+
+<p>
+  <strong>Q plan:</strong>
+  <%= @project_evaluation.q_plan %>
+</p>
+
+<p>
+  <strong>Q implement1:</strong>
+  <%= @project_evaluation.q_implement1 %>
+</p>
+
+<p>
+  <strong>Q implement2:</strong>
+  <%= @project_evaluation.q_implement2 %>
+</p>
+
+<p>
+  <strong>Q implement3:</strong>
+  <%= @project_evaluation.q_implement3 %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_evaluation.project %>
+</p>
+
+<%= link_to 'Edit', edit_project_evaluation_path(@project_evaluation) %> |
+<%= link_to 'Back', project_evaluations_path %>
