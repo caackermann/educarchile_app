@@ -42,22 +42,28 @@
     <%= form.select :methodology_id, @project.project_connection.methodology_evaluations.map {|x| [x.methodology.name, "#{x.methodology.id}"] } %>
   </div>
 
+  <h4>
+    Incluye tres argumentos de por qué elegiste esta metología. ¿Por qué tiene
+    sentido para tu comunidad educativa? Este paso te será útil para
+    fundamentar tu decisión ante el equipo.
+  </h4>
+
   <div class="field">
-    <%= form.label :p1 %>
+    <%= form.label :p1, "a)" %>
     <%= form.text_area :p1, id: :project_choice_p1 %>
   </div>
 
   <div class="field">
-    <%= form.label :p2 %>
+    <%= form.label :p2, "b)" %>
     <%= form.text_area :p2, id: :project_choice_p2 %>
   </div>
 
     <div class="field">
-    <%= form.label :p3 %>
+    <%= form.label :p3, "c)" %>
     <%= form.text_area :p3, id: :project_choice_p3 %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Siguiente" %>
   </div>
 <% end %>
