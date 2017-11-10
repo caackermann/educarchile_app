@@ -2,41 +2,44 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <h4>PASO 1. CONECTAR</h4>
+    <h4>PASO 1: Conectar</h4>
     <div class="field">
       <%= f.label :q_connect, "¿Lograste conectar las metodologías
       con las necesidades y desafíos de
       tu escuela?, ¿en qué se notó?" %><br>
-      <%= f.text_area :q_connect, id: :project_evaluation_q_connect %>
+      <%= f.text_area :q_connect, id: :project_evaluation_q_connect, class:"form-control" %>
     </div>
-    <h4>PASO 2. ELEGIR</h4>
+    <h4>PASO 2: Elegir</h4>
     <div class="field">
       <%= f.label :q_choose, "¿La decisión respondió a las necesidades de
 tu contexto?" %><br>
-      <%= f.text_area :q_choose, id: :project_evaluation_q_choose %>
+      <%= f.text_area :q_choose, id: :project_evaluation_q_choose, class:"form-control"%>
     </div>
-    <h4>PASO 3. PLANIFICAR</h4>
+    <h4>PASO 3: Planificar</h4>
     <div class="field">
       <%= f.label :q_plan, "¿La planificación fue clara y comprensiva en cuanto a los recursos, tiempos y
 responsables que se requerían? Describe logros y espacios a mejorar. " %><br>
-      <%= f.text_area :q_plan, id: :project_evaluation_q_plan %>
+      <%= f.text_area :q_plan, id: :project_evaluation_q_plan, class:"form-control"%>
     </div>
-    <h4>PASO 4. IMPLEMENTAR</h4>
+    <h4>PASO 4: Implementar</h4>
     <div class="field">
       <%= f.label :q_implement1, "¿Qué funcionó?" %><br>
-      <%= f.text_area :q_implement1, id: :project_evaluation_q_implement1 %>
+      <%= f.text_area :q_implement1, id: :project_evaluation_q_implement1, class:"form-control" %>
     </div>
     <div class="field">
       <%= f.label :q_implement2, "¿Qué puede mejorar? " %><br>
-      <%= f.text_area :q_implement2, id: :project_evaluation_q_implement2 %>
+      <%= f.text_area :q_implement2, id: :project_evaluation_q_implement2, class:"form-control" %>
     </div>
     <div class="field">
       <%= f.label :q_implement3, "¿Escalaremos la experiencia?" %><br>
-      <%= f.text_area :q_implement3, id: :project_evaluation_q_implement3 %>
+      <%= f.text_area :q_implement3, id: :project_evaluation_q_implement3, class:"form-control" %>
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Siguiente" %>
-  </div>
+<br><br>
+  <div class="center">
+      <div class="form-actions">
+          <%= f.submit "Continuar a Encuestas", class:"btn btn-lg btn-custom" %>
+      </div>
+    </div>
 <% end %>

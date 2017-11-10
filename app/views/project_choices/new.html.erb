@@ -1,11 +1,11 @@
 <div><h1><strong><center> Etapa 2 de 6: Elegir  </center></strong></h1></div>
 </br>
 <%= progress_bar 0.33, label: true, style: 'min-width: 20px', alternative: 'success', active: true %>
-
+<p>A continuación, puedes ver las metodologías que has evaluado</p>
 <table class='table'>
   <thead>
     <tr>
-      <th>Metodologia</th>
+      <th>Metodologias Evaluadas</th>
       <th>Comentarios Generales</th>
       <th>Utilidad</th>
       <th>Pertinencia</th>
@@ -17,7 +17,7 @@
     <% @project.project_connection.methodology_evaluations.each do |mev| %>
       <tr>
           <td><%=mev.methodology.name%></td>
-          <td><%=mev.reason%></td>
+          <td><% if mev.reason==""%>Ninguno<%else%><%=mev.reason%><%end%></td>
           <td><%=mev.utility%></td>
           <td><%=mev.pertinence%></td>
           <td><%=mev.relevance%></td>
@@ -26,5 +26,4 @@
       <% end %>
   </tbody>
 </table>
-
 <%= render 'form', project_choice: @project_choice %>

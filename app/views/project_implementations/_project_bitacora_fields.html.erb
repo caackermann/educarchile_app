@@ -1,15 +1,20 @@
 <div class="nested-fields">
+  <div class="center">
   <div class="field">
-    <%= f.label :day %>
-    <%= f.date_select :day, id: :project_implementation_day %>
+    <%= f.label :day, "Bitácora para el día:" %>
+    <%= f.date_select :day, id: :project_implementation_day, class: "form-control" %>
   </div>
+  </div>
+  <div class="center">
+      <%= link_to_remove_association "Eliminar Día", f, class: 'btn btn-danger btn-xs' %>
+    </div>
 
   <h4>Objetivos</h4>
   <div class="field">
     <%= f.label :objetives, "Indica qué cambios y/o logros buscas obtener con esta actividad
 específica, usando la(s) metodología(s) elegida(s), esto te ayuda a
 orientar la actividada para luego analizar si resultó o no." %>
-    <%= f.text_area :objetives, id: :project_implementation_objetives %>
+    <%= f.text_area :objetives, id: :project_implementation_objetives, class: "form-control" %>
   </div>
 
   <h4>Observaciones</h4>
@@ -20,7 +25,7 @@ específica dentro o fuera de clase/escuela, etcétera). Cualquier
 acontecimiento o reflexión (positiva o negativa) que parezca
 importante dejar registrada (esto te permitirá pensar en medidas
 futuras que te ayuden al logro de la implementación)." %>
-    <%= f.text_area :observations, id: :project_implementation_observations %>
+    <%= f.text_area :observations, id: :project_implementation_observations, class: "form-control" %>
   </div>
 
   <h4>Avances</h4>
@@ -35,7 +40,7 @@ interés, desarrollo de habilidades (socio cognitivas, disciplinarias
 y tecnológicas pretendidas), entre otros. Aunque los cambios no
 ocurran de un día para el otro, cada pequeño avance es relevante
 para ¡poder potenciarlos!" %>
-    <%= f.text_area :advances, id: :project_implementation_advances %>
+    <%= f.text_area :advances, id: :project_implementation_advances, class: "form-control" %>
   </div>
 
   <h4>Obstáculos</h4>
@@ -46,7 +51,7 @@ una condición aislada y por lo tanto momentánea o si es algo
 más bien permanente. (No siempre todo sale como lo planeado
 y eso es normal. Lo importante es reflexionar sobre estos
 acontecimientos para poder buscar soluciones). " %>
-    <%= f.text_area :conflicts, id: :project_implementation_conflicts %>
+    <%= f.text_area :conflicts, id: :project_implementation_conflicts, class: "form-control" %>
   </div>
 
   <h4>Ideas Nuevas</h4>
@@ -58,9 +63,8 @@ evento/clase?, ¿cómo obtener provecho de los obstáculos y/o
 oportunidades que surgieron? (Este tipo de reflexión es
 importante porque te ayuda a pensar cómo puedes ir mejorando
 tus estrategias para ¡lograr tus objetivos!)." %>
-    <%= f.text_area :new_ideas, id: :project_implementation_new_ideas %>
+    <%= f.text_area :new_ideas, id: :project_implementation_new_ideas, class: "form-control" %>
   </div>
-
-  <%= link_to_remove_association "Eliminar Día", f, class: 'btn btn-primary btn-xs' %>
+<br>
 
 </div>

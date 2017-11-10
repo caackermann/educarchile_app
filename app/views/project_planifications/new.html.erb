@@ -2,7 +2,6 @@
 </br>
 <%= progress_bar 0.50, label: true, style: 'min-width: 20px', alternative: 'success', active: true %>
 
-<h4>Metodología a utilizar:</h4>
-<%= @project.project_choice.methodology.name %>
-
+<h4>Metodología a utilizar:  <%= @project.project_choice.methodology.name %></h4>
+<br>
 <%= render 'form', project_planification: @project_planification %>
