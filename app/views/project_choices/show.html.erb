@@ -4,7 +4,7 @@
 
 <p>
   <strong>Desicion:</strong>
-  <%= @project_choice.desicion %>
+  <%= Methodology.find(@project_choice.methodology_id).name %>
 </p>
 
 <p>
