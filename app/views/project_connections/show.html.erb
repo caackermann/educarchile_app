@@ -1,19 +1,51 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/progressbar', project: @project %>
+
 <p>
-  <strong>Needs:</strong>
+  <strong>Tras la revisión del material presentado ¿qué
+      necesidades, problemas o desafíos de tu escuela puede(n) ayudar a
+      solucionar la(s) metodología(s) revisada(s)?</strong>
+      <br>
   <%= @project_connection.needs %>
 </p>
 
+
+<br>
+  <p><strong> Metodologías Evaluadas</strong> </p>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Metodología</th>
+          <th>Comentarios</th>
+          <th>Utilidad</th>
+          <th>Pertinencia</th>
+          <th>Relevancia</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody class ="methodology_evaluations">
+      <% @project_connection.methodology_evaluations.map { |m| %>
+        <tr>
+        <td><%= Methodology.find(m.methodology_id).name %></td>
+        <td><%= m.reason%></td>
+        <td><%= m.utility%></td>
+        <td><%= m.pertinence%></td>
+        <td><%= m.relevance%></td>
+        </tr>
+      <% } %>
+    </tbody>
+    </table>
+
+
 <p>
   <strong>Ideas:</strong>
+  <br>
   <%= @project_connection.ideas %>
 </p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_connection.project %>
-</p>
 
-<%= link_to 'Edit', edit_project_connection_path(@project_connection) %> |
-<%= link_to 'Back', project_connections_path %>
+<%= link_to 'Edit', edit_project_project_connection_path(@project_connection) %>
+
+

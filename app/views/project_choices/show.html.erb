@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/progressbar', project: @project %>
+
 <p>
   <strong>Desicion:</strong>
-  <%= @project_choice.desicion %>
+  <%= Methodology.find(@project_choice.methodology_id).name %>
 </p>
 
 <p>
@@ -20,10 +22,5 @@
   <%= @project_choice.p3 %>
 </p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_choice.project %>
-</p>
 
-<%= link_to 'Edit', edit_project_choice_path(@project_choice) %> |
-<%= link_to 'Back', project_choices_path %>
+<%= link_to 'Edit', edit_project_project_choice_path(@project_choice) %>

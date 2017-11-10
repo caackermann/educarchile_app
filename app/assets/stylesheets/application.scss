@@ -15,7 +15,19 @@
 
 
 /* mixins, variables, etc. */
-
+$background-gray:  #263238;
+$gray-opacity:  rgba(0,0,0,0.4);
+$yellow-orange: #ff9900;
+$cream-white:   #f8f8f8;
+$yellow:        #fefa27;
+$green:         #509916;
+$blue:          #0080ff;
+$fb-blue:       #3b5998;
+$plum:          #7c2583;
+$purple:        #752a8f;
+$black:         #000;
+$gray:          gray;
+$transparent:    rgba(0,0,0,0);
 $gray-medium-light: #eaeaea;
 
 /* universal */
@@ -347,3 +359,102 @@ div.projects {
       }
   }
 }
+.review-block{
+	padding:15px;
+  padding-bottom: 2em;
+	border-radius:3px;
+
+}
+.review-block-name{
+	font-size:12px;
+	margin:10px 0;
+  color: $fb-blue;
+}
+.review-block-date p{
+  font-size: 10px;
+  color: $gray;
+  margin: 0%;
+}
+.review-block-rate{
+	font-size:13px;
+	margin-bottom:15px;
+}
+.review-block-title{
+	font-size:15px;
+	font-weight:700;
+	margin-bottom:10px;
+}
+.review-block-description p {
+	font-size: 16px;
+  color: #272727;
+  padding-left: 5%;
+}
+.review-block-description{
+  margin-top: 2em;
+}
+.img-circle2 {
+  border-radius: 50%;
+  padding: 5%;
+  display: block;
+  margin:auto;
+}
+
+.review-user-name p{
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0%;
+  color: $yellow-orange;
+  text-decoration:none;
+  background: none;
+}
+.review-user-name a:hover{
+  text-decoration:none;
+}
+
+.rating-block{
+	display:inline-block;
+}
+
+.reviews-bar-container
+{
+  width:80%;
+  //background: $blue;
+  padding: .1em;
+  //border-radius: 3px;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+
+}
+.scroll-box {
+  max-height:  50em;
+  overflow: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0;
+
+}
+
+.no-reviews-text
+{
+  color: $gray;
+
+}
+
+.review-form
+{
+  margin-bottom: 2em;
+}
+.container-add-review
+{
+  margin-top: 2em;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+.review-button-add
+{
+  color: white;
+  border:0;
+  padding: .5em;
+  border-radius: 3px;
+  background-color: $yellow-orange;
+}
+label.p1, label.p2, label.p3 { margin-right: 10px; }

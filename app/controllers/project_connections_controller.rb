@@ -46,7 +46,7 @@ class ProjectConnectionsController < ApplicationController
   def update
     respond_to do |format|
       if @project_connection.update(project_connection_params)
-        format.html { redirect_to edit_project_project_choice_path(@project), notice: 'Project connection was successfully updated.' }
+        format.html { redirect_to project_project_connection_path(@project), notice: 'Project connection was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_connection }
       else
         format.html { render :edit }

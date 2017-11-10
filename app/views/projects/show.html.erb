@@ -1,31 +1,50 @@
 <h1>Proyecto <%= @project.name %></h1>
-
-
 <div class="text-left">
-  <div class="center"><div class="star-rating" data-score= <%= @project.avg_rating %> ></div> <br></div>
-    
+  <div class="center"><div class="star-rating" data-score= <%= @project.avg_rating %>></div> <br></div>
+  <%= render 'layouts/progressbar', project: @project %>
     <p><strong>Creado por: </strong> <%= @project.user.name%> <%=@project.user.lastname%></p>
     <p><strong>Descripción: </strong><br><%= @project.description%></p>
     <% if user_signed_in? %>
       <% if @project.user.id == current_user.id %>
-        <%= link_to 'Editar |', edit_project_path(@project) %>
-        <%= link_to 'Volver', projects_path %>
+        <%= link_to 'Editar Proyecto |', edit_project_path(@project) %>
       <% end %>
+      <%= link_to 'Ver todos', projects_path %>
     <% end %>
 </div>
-<div>
+<div class="review-bock">
     <% if @project.project_reviews.any? %>
-      <h4> Reviews </h4>
+      <h4> Comentarios </h4>
       <%= render @project.project_reviews %>
     <% end %>
-  <hr>
-  <p>Agregar Comentario</p>
-  <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
-    <div id="star-rating"></div>
-      <%= f.text_area  :content %>
-      <%= submit_tag "Add" %>
-  <% end %>
 </div>
+<div class="row">
+    <div class="row">
+      <div class="col-sm-2">
+          <%= image_tag gravatar_url(current_user.email, 64), class:"img-circle2" %>
+      </div>
+      <div class="col-sm-5">
+
+          <div class="row review-block-date">
+              <% if user_signed_in?%>
+                <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
+                  <div class="row review-user-name">
+                      <p>Agregar Comentario</p>
+                    <div class="center">
+                      <div id="star-rating"></div>
+                      <%= f.text_area  :content , size: "120x8"%>
+                      <%= submit_tag "Agregar Comentario", class: "review-button-add"%>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+              <h4>Inicia Sesión para agregar un comentario</h4>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
 
 <script>
   $('.star-rating').raty({

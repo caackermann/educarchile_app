@@ -1,18 +1,20 @@
 <div class="center">
-<%= simple_form_for([@project, @project.build_project_connection])  do |form| %>
+<%= simple_form_for([@project, @project.build_project_connection])  do |form|%>
 
   <div class="field">
+    <div class="text-left">
     <%= form.label :needs, "Tras la revisión del material presentado ¿qué
       necesidades, problemas o desafíos de tu escuela puede(n) ayudar a
-      solucionar la(s) metodología(s) revisada(s)?" %>
-    <%= form.text_area :needs, id: :project_connection_needs %>
+      solucionar la(s) metodología(s) revisada(s)?" %></div>
+    <%= form.text_area :needs, id: :project_connection_needs, size: "150x5", placeholder: "Escribe tu respuesta acá..." %>
+    
   </div>
   <br>
-  <p><strong> Escoja una metodología y lleve a cabo su evaluación</strong> </p>
+  <p class="text-left"><strong> Escoja una metodología y lleve a cabo su evaluación</strong> </p>
     <table class='table'>
       <thead>
         <tr>
-          <th>Metodología</th>
+          <th>Metodología a evaluar</th>
           <th>Comentarios</th>
           <th>Utilidad</th>
           <th>Pertinencia</th>
@@ -26,20 +28,22 @@
         <% end %>
       </tbody>
     </table>
-
+    <div class="actions">
+      <%= link_to_add_association 'Evaluar otra metodología', form, :methodology_evaluations, class: 'btn btn-success add_fields', data: { association_insertion_node: '.methodology_evaluations', association_insertion_method: :append } %>
+    </div>
   <br>
 
   <div class="field">
+    <div class="text-left">
     <%= form.label "Con lo visto hasta el momento, ¿Qué ideas te surgen?,
-¿qué acciones crees que podrías realizar?" %>
+¿qué acciones crees que podrías realizar?" %></div>
     <br>
-    <%= form.text_area :ideas, id: :project_connection_ideas %>
+    <%= form.text_area :ideas, id: :project_connection_ideas, size: "150x3", placeholder: "Escribe tu respuesta acá" %>
   </div>
 
   <br>
   <div class="actions">
-    <%= link_to_add_association 'Agregar Evaluación', form, :methodology_evaluations, class: 'btn btn-primary', data: { association_insertion_node: '.methodology_evaluations', association_insertion_method: :append } %>
-    <%= form.submit "Agregar", class:"btn btn-lg btn-custom"%>
+    <%= form.submit "Continuar a Elegir Metodología", class:"btn btn-lg btn-custom"%>
   </div>
 <% end %>
 <tr>

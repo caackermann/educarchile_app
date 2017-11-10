@@ -2,30 +2,32 @@
   <%= form.error_notification %>
 
   <div class="form-inputs">
-    <%= form.input :name %>
+    <%= form.label :place, "¿Dónde se va a implementar?" %><br>
+    <%= form.text_area :place, class: "form-control", placeholder: "Escribe tu respuesta acá..." %>
+  </div>
+<br>
+  <h4>Periodo de implementación</h4>
+
+  <div class="form-inputs">
+    <%= form.label :startdate, "Fecha de inicio   :" %>
+    <%= form.date_select :startdate, class:"form-control"%>
   </div>
 
   <div class="form-inputs">
-    <%= form.input :place %>
+    <%= form.label :finishdate, "Fecha de término   :" %>
+    <%= form.date_select :finishdate, class: "form-control" %>
   </div>
-
-  <div class="form-inputs">
-    <%= form.datetime_select :startdate %>
-  </div>
-
-  <div class="form-inputs">
-    <%= form.datetime_select :finishdate %>
-  </div>
-
-  <h2>Recursos Físicos y Financieros</h2>
+<br>
+  <h4>Recursos Físicos y Financieros</h4>
 
   <table class="table">
     <thead>
       <tr>
-        <th></th>
+        
         <th>Item</th>
         <th>Disponible </th>
         <th>¿Cómo podemos obtener los recursos?</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -37,17 +39,20 @@
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-primary', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
+    <div class="center">
+    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-success add_fields', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
   </div>
-
-  <h3>Otras condiciones necesarias <br> (autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h3>
+  </div>
+  <h3>Otras condiciones necesarias </h3>
+    <h4>(autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h4>
 
   <table class="table">
     <thead>
       <tr>
-        <th></th>
+        
         <th>Item</th>
         <th>¿Cómo podemos obtener los recursos?</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -59,16 +64,19 @@
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-primary', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
+    <div class="center">
+    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-success add_fields', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
+  </div>
   </div>
 
 
 
 
-
+<br><br>
 <div class="form-actions">
-    <%= form.button :submit %>
-
+  <div class="center">
+      <%= form.submit "Continuar a Implementar", class:"btn btn-lg btn-custom" %>
+  </div>
 </div>
 
 <% end %>

@@ -1,4 +1,4 @@
-<%= simple_form_for([@project, @project.build_project_evaluation])  do |f| %>
+<%= simple_form_for([@project, @project.project_evaluation])  do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -39,7 +39,7 @@ responsables que se requerían? Describe logros y espacios a mejorar. " %><br>
 <br><br>
   <div class="center">
       <div class="form-actions">
-          <%= f.submit "Continuar a Encuestas", class:"btn btn-lg btn-custom" %>
+          <%= f.submit "Actualizar", class:"btn btn-lg btn-custom" %>
       </div>
     </div>
 <% end %>

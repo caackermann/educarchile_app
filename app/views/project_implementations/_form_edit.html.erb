@@ -1,21 +1,23 @@
 <%= simple_form_for([@project, @project.project_implementation]) do |form| %>
   <%= form.error_notification %>
 
-  <h2>Bitacoras</h2>
+  <h3 class="text-center">Bitacoras</h3>
 
   <div class ="project_bitacoras">
   <%= form.simple_fields_for :project_bitacoras do |builder| %>
       <%= render 'project_bitacora_fields', f: builder %>
     <% end %>
   </div>
-
+  <br>
+<div class="center">
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Bitacora', form, :project_bitacoras, class: 'btn btn-primary', data: { association_insertion_node: '.project_bitacoras', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Nueva Bitácora', form, :project_bitacoras, class: 'btn btn-success', data: { association_insertion_node: '.project_bitacoras', association_insertion_method: :append } %>
   </div>
-
+<br>
 <div class="form-actions">
-    <%= form.button :submit %>
+    <%= form.submit "Actualizar", class:"btn btn-lg btn-custom"%>
 
 </div>
 
 <% end %>
+</div>

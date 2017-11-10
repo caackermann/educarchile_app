@@ -1,34 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Day:</strong>
-  <%= @project_implementation.day %>
-</p>
+<%= render 'layouts/progressbar', project: @project %>
 
-<p>
-  <strong>Observations:</strong>
-  <%= @project_implementation.observations %>
-</p>
 
-<p>
-  <strong>Advances:</strong>
-  <%= @project_implementation.advances %>
-</p>
+  <h2>Bitacoras</h2>
 
-<p>
-  <strong>Conflicts:</strong>
-  <%= @project_implementation.conflicts %>
-</p>
+  <div class ="project_bitacoras">
+  <% @project_implementation.project_bitacoras.map { |m| %>
 
-<p>
-  <strong>New ideas:</strong>
-  <%= @project_implementation.new_ideas %>
-</p>
+  <div class="field">
+    <%= :day %>
+    <%= m.day %>
+  </div>
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_implementation.project %>
-</p>
+  <div class="field">
+    <%= :objetives %>
+    <%= m.objetives %>
+  </div>
 
-<%= link_to 'Edit', edit_project_implementation_path(@project_implementation) %> |
-<%= link_to 'Back', project_implementations_path %>
+  <div class="field">
+    <%= :observations %>
+    <%= m.observations %>
+  </div>
+
+  <div class="field">
+    <%= :advances %>
+    <%= m.advances %>
+  </div>
+
+  <div class="field">
+    <%= :conflicts %>
+    <%= m.conflicts %>
+  </div>
+
+  <div class="field">
+    <%= :new_ideas %>
+    <%= m.new_ideas %>
+  </div>
+
+<% } %>
+
+  </div>
+
+
+
+<%= link_to 'Edit', edit_project_project_implementation_path(@project_implementation) %>
