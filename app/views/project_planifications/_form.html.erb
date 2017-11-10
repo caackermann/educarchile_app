@@ -38,7 +38,7 @@
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-primary', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-primary add_fields', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
   </div>
 
   <h3>Otras condiciones necesarias <br> (autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h3>
@@ -60,7 +60,7 @@
   </table>
 
   <div class="form-actions">
-    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-primary', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-primary add_fields', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
   </div>
 
 

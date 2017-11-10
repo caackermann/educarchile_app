@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/progressbar', project: @project %>
+
 <p>
   <strong>Needs:</strong>
   <%= @project_connection.needs %>
@@ -15,5 +17,4 @@
   <%= @project_connection.project %>
 </p>
 
-<%= link_to 'Edit', edit_project_connection_path(@project_connection) %> |
-<%= link_to 'Back', project_connections_path %>
+<%= link_to 'Edit', edit_project_project_connection_path(@project_connection) %>
