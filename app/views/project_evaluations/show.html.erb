@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/progressbar', project: @project %>
+
 <p>
   <strong>Q connect:</strong>
   <%= @project_evaluation.q_connect %>
@@ -35,5 +37,4 @@
   <%= @project_evaluation.project %>
 </p>
 
-<%= link_to 'Edit', edit_project_evaluation_path(@project_evaluation) %> |
-<%= link_to 'Back', project_evaluations_path %>
+<%= link_to 'Edit', edit_project_project_evaluation_path(@project_evaluation) %>
