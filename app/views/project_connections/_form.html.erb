@@ -38,7 +38,7 @@
 
   <br>
   <div class="actions">
-    <%= link_to_add_association 'Agregar Evaluación', form, :methodology_evaluations, class: 'btn btn-primary', data: { association_insertion_node: '.methodology_evaluations', association_insertion_method: :append } %>
+    <%= link_to_add_association 'Agregar Evaluación', form, :methodology_evaluations, class: 'btn btn-primary add_fields', data: { association_insertion_node: '.methodology_evaluations', association_insertion_method: :append } %>
     <%= form.submit "Agregar", class:"btn btn-lg btn-custom"%>
   </div>
 <% end %>
