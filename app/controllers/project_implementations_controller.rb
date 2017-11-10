@@ -46,7 +46,7 @@ class ProjectImplementationsController < ApplicationController
   def update
     respond_to do |format|
       if @project_implementation.update(project_implementation_params)
-        format.html { redirect_to @project, notice: 'Project implementation was successfully updated.' }
+        format.html { redirect_to project_project_implementation_path(@project), notice: 'Project implementation was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_implementation }
       else
         format.html { render :edit }

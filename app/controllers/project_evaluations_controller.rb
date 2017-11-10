@@ -46,7 +46,7 @@ class ProjectEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @project_evaluation.update(project_evaluation_params)
-        format.html { redirect_to edit_project_project_evaluation_path(@project), notice: 'Project evaluation was successfully updated.' }
+        format.html { redirect_to project_project_evaluation_path(@project), notice: 'Project evaluation was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_evaluation }
       else
         format.html { render :edit }
@@ -68,6 +68,7 @@ class ProjectEvaluationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project_evaluation
+      @project = Project.find(params[:project_id])
       @project_evaluation = ProjectEvaluation.find(params[:id])
     end
 
