@@ -1,29 +1,3 @@
-
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Metodologia</th>
-      <th>Comentarios Generales</th>
-      <th>Utilidad</th>
-      <th>Pertinencia</th>
-      <th>Relevancia</th>
-      <th> Puntaje </th>
-    </tr>
-  </thead>
-  <tbody class='fields'>
-    <tr>
-      <% @project.project_connection.methodology_evaluations.each do |mev| %>
-        <td><%=mev.methodology.name%></td>
-        <td><%=mev.reason%></td>
-        <td><%=mev.utility%></td>
-        <td><%=mev.pertinence%></td>
-        <td><%=mev.relevance%></td>
-        <td><%=mev.utility + mev.relevance + mev.pertinence%></td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
-
 <%= form_for [@project, @project.build_project_choice]  do |form| %>
   <% if project_choice.errors.any? %>
     <div id="error_explanation">
