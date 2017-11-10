@@ -32,7 +32,7 @@ class ProjectEvaluationsController < ApplicationController
 
     respond_to do |format|
       if @project_evaluation.save
-        format.html { redirect_to @project, notice: 'Project evaluation was successfully created.' }
+        format.html { redirect_to survey_new_path, notice: 'Project evaluation was successfully created.' }
         format.json { render :show, status: :created, location: @project_evaluation }
       else
         format.html { render :new }
