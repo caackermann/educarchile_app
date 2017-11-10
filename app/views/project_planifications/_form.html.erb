@@ -2,22 +2,23 @@
   <%= form.error_notification %>
 
   <div class="form-inputs">
-    <%= form.input :name %>
+    <%= form.label :place, "¿Dónde se va a implementar?" %><br>
+    <%= form.text_area :place %>
+  </div>
+<br>
+  <h4>Periodo de implementación</h4>
+
+  <div class="form-inputs">
+    <%= form.label :startdate, "Fecha de inicio" %><br>
+    <%= form.date_select :startdate %>
   </div>
 
   <div class="form-inputs">
-    <%= form.input :place %>
+    <%= form.label :finishdate, "Fecha de término" %><br>
+    <%= form.date_select :finishdate %>
   </div>
-
-  <div class="form-inputs">
-    <%= form.datetime_select :startdate %>
-  </div>
-
-  <div class="form-inputs">
-    <%= form.datetime_select :finishdate %>
-  </div>
-
-  <h2>Recursos Físicos y Financieros</h2>
+<br>
+  <h4>Recursos Físicos y Financieros</h4>
 
   <table class="table">
     <thead>
@@ -67,7 +68,7 @@
 
 
 <div class="form-actions">
-    <%= form.button :submit %>
+    <%= form.button :submit, "Siguiente" %>
 
 </div>
 
