@@ -25,15 +25,19 @@
       <div class="col-sm-5">
 
           <div class="row review-block-date">
-              <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
-              <div class="row review-user-name">
-                  <p>Agregar Comentario</p>
-                <div class="center">
-                  <div id="star-rating"></div>
-                  <%= f.text_area  :content , size: "120x8"%>
-                  <%= submit_tag "Agregar Comentario", class: "review-button-add"%>
-                </div>
-              </div>
+              <% if user_signed_in?%>
+                <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
+                  <div class="row review-user-name">
+                      <p>Agregar Comentario</p>
+                    <div class="center">
+                      <div id="star-rating"></div>
+                      <%= f.text_area  :content , size: "120x8"%>
+                      <%= submit_tag "Agregar Comentario", class: "review-button-add"%>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+              <h4>Inicia Sesión para agregar un comentario</h4>
               <% end %>
             </div>
           </div>
