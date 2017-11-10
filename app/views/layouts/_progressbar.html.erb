@@ -1,0 +1,31 @@
+<table class="table table-hover">
+    <tbody>
+        <tr>
+          <td>
+            <%= button_to "Principal", project_path(project), 
+            method: :get %></td>
+          </td>
+        </tr>
+        <tr>
+          <% if @project.connection_exists? %>
+            <td><%= button_to "Conectar", project_project_connection_path(project), 
+            method: :get %></td>
+          <% end %>
+
+          <% if @project.choice_exists? %>
+            <td><%= button_to "Elegir", project_project_choice_path(project), 
+            method: :get %></td>
+          <% end %>
+
+          <% if @project.planification_exists? %>
+            <td><%= button_to "Planificar", project_project_planification_path(project), 
+            method: :get %></td>
+          <% end %>
+
+          <% if @project.implementation_exists? %>
+            <td><%= button_to "Implementar", project_project_implementation_path(project), 
+            method: :get %></td>
+          <% end %>
+        </tr>
+    </tbody>
+</table>

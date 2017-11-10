@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'layouts/progressbar', project: @project %>
+
 <p>
   <strong>Name:</strong>
   <%= @project_planification.name %>
@@ -14,4 +16,3 @@
   <strong>Project:</strong>
   <%= @project_planification.project %>
 </p>
-
