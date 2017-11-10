@@ -2,23 +2,22 @@
 
 <%= render 'layouts/progressbar', project: @project %>
 
-<p>
-  <strong>Decisión:</strong>
-  <%= Methodology.find(@project_choice.methodology_id).name %>
-</p>
 
+  <h4>Metodología escogida:</h4>
+  <p><%= Methodology.find(@project_choice.methodology_id).name %></p>
+<h4>Razones para seleccionar esta metodología: </h4>
 <p>
-  <strong>P1:</strong>
+  <strong>Nº1</strong>
   <%= @project_choice.p1 %>
 </p>
 
 <p>
-  <strong>P2:</strong>
+  <strong>Nº2</strong>
   <%= @project_choice.p2 %>
 </p>
 
 <p>
-  <strong>P3:</strong>
+  <strong>Nº3:</strong>
   <%= @project_choice.p3 %>
 </p>
 

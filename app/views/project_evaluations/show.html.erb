@@ -2,34 +2,32 @@
 
 <%= render 'layouts/progressbar', project: @project %>
 
-<p>
-  <strong>PASO 1: Conectar: </strong>
-  <%= @project_evaluation.q_connect %>
+  <h3>PASO 1:</h3>
+  <h4> Conectar: </h4>
+  <p class="text-center"><%= @project_evaluation.q_connect %></p>
+
+  <h3>PASO 2: </h3>
+    <h4>Elegir</h4>
+  <p class="text-center"><%= @project_evaluation.q_choose %></p>
+
+<h3>PASO 3:</h3> 
+<h4>Planificar</h4>
+  <p class="text-center"><%= @project_evaluation.q_plan %>
 </p>
 
-<p>
-  <strong>PASO 2: Elegir</strong>
-  <%= @project_evaluation.q_choose %>
+<h3>PASO 4: </h3>
+<h4>Implementar (1)</h4>
+  <p class="text-center"><%= @project_evaluation.q_implement1 %>
 </p>
 
-<p>
-  <strong>PASO 3: Planificar</strong>
-  <%= @project_evaluation.q_plan %>
+<h3>PASO 4: </h3>
+  <h4>Implementar (2) </h4>
+  <p class="text-center"><%= @project_evaluation.q_implement2 %>
 </p>
 
-<p>
-  <strong>PASO 4: Implementar (1)</strong>
-  <%= @project_evaluation.q_implement1 %>
-</p>
-
-<p>
-  <strong>PASO 4: Implementar (2) </strong>
-  <%= @project_evaluation.q_implement2 %>
-</p>
-
-<p>
-  <strong>PASO 4: Implementar (3) </strong>
-  <%= @project_evaluation.q_implement3 %>
+<h3>PASO 4:</h3>
+   <h4>Implementar (3) </h4>
+  <p class="text-center"><%= @project_evaluation.q_implement3 %>
 </p>
 
 

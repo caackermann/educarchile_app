@@ -3,39 +3,44 @@
 <%= render 'layouts/progressbar', project: @project %>
 
 
-  <h2>Bitacoras</h2>
+  <h1>Bitacoras</h1>
 
   <div class ="project_bitacoras">
   <% @project_implementation.project_bitacoras.map { |m| %>
 
   <div class="field">
-    <p>Dia: 
-    <%= m.day %></p>
+    <h4>Dia: </h4>
+    <p class="text-center"><%= m.day %></p>
   </div>
 
   <div class="field">
-    <p>Objetivos: 
-    <%= m.objetives %></p>
+    <h4>Objetivos: </h4>
+    <p style="font-weight:bold;">Cambios y/o logros que buscas obtener con esta actividad específica, usando la(s) metodología(s) elegida(s)</p>
+    <p class="text-center"><%= m.objetives %></p>
   </div>
 
   <div class="field">
-    <p>Observaciones: 
-    <%= m.observations %></p>
+    <h4>Observaciones: </h4>
+    <p style="font-weight:bold;">Condiciones bajo las cuales se desarrolló la actividad.</p>
+    <p class="text-center"><%= m.observations %></p>
   </div>
 
   <div class="field">
-    <p>Avances: 
-    <%= m.advances %></p>
+    <h4>Avances: </h4>
+    <p style="font-weight:bold;">¿Se cumplieron los objetivos que te habías propuesto?, ¿En qué lo notas?. Indicar cambios positivos</p>
+    <p class="text-center"><%= m.advances %></p>
   </div>
 
   <div class="field">
-    <p>Conflictos
-    <%= m.conflicts %></p>
+    <h4>Conflictos: </h4>
+    <p style="font-weight:bold;">Cambios negativos, retrocesos o dificultades específicas. Reflexionen torno a problemas que surgieron en razón de una condición aislada y por lo tanto momentánea o algo más bien permanente.</p>
+    <p class="text-center"><%= m.conflicts %></p>
   </div>
 
   <div class="field">
-    <p>Nuevas Ideas: 
-    <%= m.new_ideas %></p>
+    <h4>Nuevas Ideas: </h4>
+    <p style="font-weight:bold;">Idea(s) que pueden ayudar en la próxima actividad. ¿Qué se puede mejorar?, ¿Cómo se podría trabajar/enfrentar los obstáculos en una próxima evento/clase?, ¿cómo obtener provecho de los obstáculos y/o oportunidades que surgieron?.</p>
+    <p class="text-center"><%= m.new_ideas %></p>
   </div>
 
 <% } %>

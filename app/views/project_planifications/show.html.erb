@@ -35,7 +35,7 @@
       <% @project_planification.project_resources.map  { |m| %>
         <tr>
         <td><%= m.name%></td>
-        <td><%= m.disponibility%></td>
+        <td><% if m.disponibility == true%>Si<%else%>No<% end %></td>
         <td><%= m.comment%></td>
         </tr>
 
@@ -44,7 +44,8 @@
   </table>
 
 
-<h3>Otras condiciones necesarias <br> (autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h3>
+<h3>Otras condiciones necesarias </h3> 
+<h4>(autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h4>
 
   <table class="table">
     <thead>

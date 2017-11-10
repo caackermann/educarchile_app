@@ -29,7 +29,7 @@
       <% @project_connection.methodology_evaluations.map { |m| %>
         <tr>
         <td><%= Methodology.find(m.methodology_id).name %></td>
-        <td><%= m.reason%></td>
+        <td><% if m.reason=""%>Ninguno<%else%><%= m.reason%><%end%></td>
         <td><%= m.utility%></td>
         <td><%= m.pertinence%></td>
         <td><%= m.relevance%></td>
