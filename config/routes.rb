@@ -35,4 +35,9 @@ Rails.application.routes.draw do
   resources :methodologies do
     resources :methodology_reviews
   end
+
+
+  get '/survey/new', to: 'project_survey#new'
+  post '/survey/create', to: 'project_survey#create'
+ 
 end
