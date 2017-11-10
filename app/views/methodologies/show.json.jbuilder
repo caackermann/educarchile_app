@@ -1,1 +1,1 @@
-json.partial! "methodologies/methodology", methodology: @methodology
+json.partial! 'methodologies/methodology', methodology: @methodology

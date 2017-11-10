@@ -1,5 +1,5 @@
 class MethodologiesController < ApplicationController
-  before_action :set_methodology, only: [:show, :edit, :update, :destroy]
+  before_action :set_methodology, only: %i[show edit update destroy]
 
   # GET /methodologies
   # GET /methodologies.json
@@ -9,8 +9,7 @@ class MethodologiesController < ApplicationController
 
   # GET /methodologies/1
   # GET /methodologies/1.json
-  def show
-  end
+  def show; end
 
   # GET /methodologies/new
   def new
@@ -18,8 +17,7 @@ class MethodologiesController < ApplicationController
   end
 
   # GET /methodologies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /methodologies
   # POST /methodologies.json
@@ -62,13 +60,14 @@ class MethodologiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_methodology
-      @methodology = Methodology.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def methodology_params
-      params.require(:methodology).permit(:name, :description, :link)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_methodology
+    @methodology = Methodology.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def methodology_params
+    params.require(:methodology).permit(:name, :description, :link)
+  end
 end

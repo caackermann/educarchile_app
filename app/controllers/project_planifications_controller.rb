@@ -1,5 +1,5 @@
 class ProjectPlanificationsController < ApplicationController
-  before_action :set_project_planification, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_planification, only: %i[show edit update destroy]
 
   # GET /project_planifications
   # GET /project_planifications.json
@@ -9,14 +9,12 @@ class ProjectPlanificationsController < ApplicationController
 
   # GET /project_planifications/1
   # GET /project_planifications/1.json
-  def show
-  end
+  def show; end
 
   # GET /project_planifications/new
   def new
     @project = Project.find(params[:project_id])
     @project_planification = ProjectPlanification.new
-
   end
 
   # GET /project_planifications/1/edit
@@ -67,18 +65,18 @@ class ProjectPlanificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project_planification
-      @project = Project.find(params[:project_id])
-      @project_planification = @project.project_planification
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_planification_params
-      params.require(:project_planification).permit(:name, :place, :project_id, :startdate, :finishdate,
-        project_resources_attributes: ProjectResource.attribute_names.map(&:to_sym).push(:_destroy),
-        project_conditions_attributes: ProjectCondition.attribute_names.map(&:to_sym).push(:_destroy),
-        project_diffusions_attributes: ProjectDiffusion.attribute_names.map(&:to_sym).push(:_destroy)
-        )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project_planification
+    @project = Project.find(params[:project_id])
+    @project_planification = @project.project_planification
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_planification_params
+    params.require(:project_planification).permit(:name, :place, :project_id, :startdate, :finishdate,
+                                                  project_resources_attributes: ProjectResource.attribute_names.map(&:to_sym).push(:_destroy),
+                                                  project_conditions_attributes: ProjectCondition.attribute_names.map(&:to_sym).push(:_destroy),
+                                                  project_diffusions_attributes: ProjectDiffusion.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end

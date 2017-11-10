@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   has_one :project_planification, inverse_of: :project
   has_one :project_evaluation
   has_one :project_implementation, inverse_of: :project
-  has_many   :project_reviews
+  has_many :project_reviews
 
   def connection_exists?
     !project_connection.nil?
@@ -25,12 +25,11 @@ class Project < ApplicationRecord
   end
 
   def avg_rating
-    if project_reviews.blank?
-      @avg_rating = 0
-    else
-      @avg_rating = project_reviews.average(:rating).round(2)
-    end
+    @avg_rating = if project_reviews.blank?
+                    0
+                  else
+                    project_reviews.average(:rating).round(2)
+                  end
     @avg_rating
   end
-
 end

@@ -1,5 +1,5 @@
 class ProjectEvaluationsController < ApplicationController
-  before_action :set_project_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_evaluation, only: %i[show edit update destroy]
 
   # GET /project_evaluations
   # GET /project_evaluations.json
@@ -9,8 +9,7 @@ class ProjectEvaluationsController < ApplicationController
 
   # GET /project_evaluations/1
   # GET /project_evaluations/1.json
-  def show
-  end
+  def show; end
 
   # GET /project_evaluations/new
   def new
@@ -66,14 +65,15 @@ class ProjectEvaluationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project_evaluation
-      @project = Project.find(params[:project_id])
-      @project_evaluation = ProjectEvaluation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_evaluation_params
-      params.require(:project_evaluation).permit(:q_connect, :q_choose, :q_plan, :q_implement1, :q_implement2, :q_implement3, :project_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project_evaluation
+    @project = Project.find(params[:project_id])
+    @project_evaluation = ProjectEvaluation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_evaluation_params
+    params.require(:project_evaluation).permit(:q_connect, :q_choose, :q_plan, :q_implement1, :q_implement2, :q_implement3, :project_id)
+  end
 end

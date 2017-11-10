@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-
   root 'static_pages#home'
   resources :methodologies
 
-
   resources :projects do
-
     resources :project_connections do
       resources :methodology_evaluations
     end
@@ -29,17 +26,14 @@ Rails.application.routes.draw do
     resources :methodologies
   end
 
-
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
 
   resources :methodologies do
     resources :methodology_reviews
   end
 
-
   get '/survey/new', to: 'project_survey#new'
   post '/survey/create', to: 'project_survey#create'
- 
 end

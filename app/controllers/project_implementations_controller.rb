@@ -1,5 +1,5 @@
 class ProjectImplementationsController < ApplicationController
-  before_action :set_project_implementation, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_implementation, only: %i[show edit update destroy]
 
   # GET /project_implementations
   # GET /project_implementations.json
@@ -9,14 +9,12 @@ class ProjectImplementationsController < ApplicationController
 
   # GET /project_implementations/1
   # GET /project_implementations/1.json
-  def show
-  end
+  def show; end
 
   # GET /project_implementations/new
   def new
     @project = Project.find(params[:project_id])
     @project_implementation = ProjectImplementation.new
-
   end
 
   # GET /project_implementations/1/edit
@@ -66,14 +64,15 @@ class ProjectImplementationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project_implementation
-      @project = Project.find(params[:project_id])
-      @project_implementation = @project.project_implementation
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_implementation_params
-      params.require(:project_implementation).permit(:project_id, project_bitacoras_attributes: ProjectBitacora.attribute_names.map(&:to_sym).push(:_destroy))
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project_implementation
+    @project = Project.find(params[:project_id])
+    @project_implementation = @project.project_implementation
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_implementation_params
+    params.require(:project_implementation).permit(:project_id, project_bitacoras_attributes: ProjectBitacora.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end

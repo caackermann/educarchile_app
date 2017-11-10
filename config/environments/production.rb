@@ -52,7 +52,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -80,7 +80,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -89,22 +89,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
-
-  #ActionMailer/Gmail
+  # ActionMailer/Gmail
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => Rails.application.secrets.gmail_username,
-   :password             => Rails.application.secrets.gmail_password,
-   :authentication       => "plain",
-  :enable_starttls_auto => true
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: Rails.application.secrets.gmail_username,
+    password: Rails.application.secrets.gmail_password,
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true
-
-
-  
 end

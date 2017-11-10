@@ -1,5 +1,5 @@
 class ProjectConnectionsController < ApplicationController
-  before_action :set_project_connection, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_connection, only: %i[show edit update destroy]
 
   # GET /project_connections
   # GET /project_connections.json
@@ -9,8 +9,7 @@ class ProjectConnectionsController < ApplicationController
 
   # GET /project_connections/1
   # GET /project_connections/1.json
-  def show
-  end
+  def show; end
 
   # GET /project_connections/new
   def new
@@ -66,16 +65,17 @@ class ProjectConnectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project_connection
-      @project = Project.find(params[:project_id])
-      @project_connection = @project.project_connection
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_connection_params
-      params
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project_connection
+    @project = Project.find(params[:project_id])
+    @project_connection = @project.project_connection
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_connection_params
+    params
       .require(:project_connection)
       .permit(:needs, :ideas, :project_id, methodology_evaluations_attributes: MethodologyEvaluation.attribute_names.map(&:to_sym).push(:_destroy))
-    end
+  end
 end

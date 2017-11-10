@@ -5,17 +5,17 @@ class MethodologiesControllerTest < ActionDispatch::IntegrationTest
     @methodology = methodologies(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get methodologies_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_methodology_url
     assert_response :success
   end
 
-  test "should create methodology" do
+  test 'should create methodology' do
     assert_difference('Methodology.count') do
       post methodologies_url, params: { methodology: { description: @methodology.description, link: @methodology.link, name: @methodology.name } }
     end
@@ -23,22 +23,22 @@ class MethodologiesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to methodology_url(Methodology.last)
   end
 
-  test "should show methodology" do
+  test 'should show methodology' do
     get methodology_url(@methodology)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_methodology_url(@methodology)
     assert_response :success
   end
 
-  test "should update methodology" do
+  test 'should update methodology' do
     patch methodology_url(@methodology), params: { methodology: { description: @methodology.description, link: @methodology.link, name: @methodology.name } }
     assert_redirected_to methodology_url(@methodology)
   end
 
-  test "should destroy methodology" do
+  test 'should destroy methodology' do
     assert_difference('Methodology.count', -1) do
       delete methodology_url(@methodology)
     end

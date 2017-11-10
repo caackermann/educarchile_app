@@ -1,5 +1,5 @@
 class ProjectChoicesController < ApplicationController
-  before_action :set_project_choice, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_choice, only: %i[show edit update destroy]
 
   # GET /project_choices
   # GET /project_choices.json
@@ -9,14 +9,12 @@ class ProjectChoicesController < ApplicationController
 
   # GET /project_choices/1
   # GET /project_choices/1.json
-  def show
-  end
+  def show; end
 
   # GET /project_choices/new
   def new
     @project = Project.find(params[:project_id])
     @project_choice = ProjectChoice.new
-
   end
 
   # GET /project_choices/1/edit
@@ -66,14 +64,15 @@ class ProjectChoicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project_choice
-      @project = Project.find(params[:project_id])
-      @project_choice = @project.project_choice
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_choice_params
-      params.require(:project_choice).permit(:methodology_id, :p1, :p2, :p3, :project_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project_choice
+    @project = Project.find(params[:project_id])
+    @project_choice = @project.project_choice
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_choice_params
+    params.require(:project_choice).permit(:methodology_id, :p1, :p2, :p3, :project_id)
+  end
 end
