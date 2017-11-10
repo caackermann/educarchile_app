@@ -17,3 +17,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require cocoon
+
+$(document).ready(function() { $(".add_fields").click() } );

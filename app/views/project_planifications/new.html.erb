@@ -1,8 +1,9 @@
 <div> <strong> <center> Etapa 3 de 4: Planificar  </center></strong> </div>
 </br>
 <%= progress_bar 0.75, label: true, style: 'min-width: 20px', alternative: 'success', active: true %>
+<h1>Etapa 3: Planificación</h1>
 
-<h1>New Project Planification</h1>
+<h4>Metodología a utilizar:</h4>
+<%= @project.project_choice.methodology.name %>
 
 <%= render 'form', project_planification: @project_planification %>
-
