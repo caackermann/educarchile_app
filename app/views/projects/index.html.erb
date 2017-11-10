@@ -5,7 +5,7 @@
           <div class="card">
             <div class="image">
                 <span class="title"><%= project.name %></span>
-                <button class="fab ripple"></button>
+                <button class="fab ripple",><%= project.avg_rating%></button>
             </div>
             <div class="content">
             <p><%= project.description.truncate_words(20) %></p>
