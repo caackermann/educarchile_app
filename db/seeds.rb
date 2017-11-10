@@ -10,11 +10,20 @@
 u1 = User.new(
   name:                  'Carlos',
   lastname:              'Salame',
-  email:                 'csalame@uc.cl',
+  email:                 'cjsalame@uc.cl',
   password:              '123123',
   password_confirmation: '123123'
 )
 u1.save!
+
+u2 = User.new(
+  name:                  'Christian',
+  lastname:              'Acherman',
+  email:                 'caackermann@uc.cl',
+  password:              '123123',
+  password_confirmation: '123123'
+)
+u2.save!
 
 m1 = Methodology.new(
     name:                  'Cultura de aprendizaje colaborativo',

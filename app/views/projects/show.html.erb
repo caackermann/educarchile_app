@@ -1,8 +1,7 @@
-<%= render 'layouts/progressbar', project: @project %>
-
 <h1>Proyecto <%= @project.name %></h1>
 <div class="text-left">
   <div class="center"><div class="star-rating" data-score= <%= @project.avg_rating %>></div> <br></div>
+  <%= render 'layouts/progressbar', project: @project %>
     <p><strong>Creado por: </strong> <%= @project.user.name%> <%=@project.user.lastname%></p>
     <p><strong>Descripción: </strong><br><%= @project.description%></p>
     <% if user_signed_in? %>
@@ -24,7 +23,7 @@
           <%= image_tag gravatar_url(current_user.email, 64), class:"img-circle2" %>
       </div>
       <div class="col-sm-5">
-        
+
           <div class="row review-block-date">
               <% if user_signed_in?%>
                 <%= simple_form_for([@project, @project.project_reviews.build]) do |f| %>
