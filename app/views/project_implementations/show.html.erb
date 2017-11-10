@@ -2,4 +2,46 @@
 
 <%= render 'layouts/progressbar', project: @project %>
 
+
+  <h2>Bitacoras</h2>
+
+  <div class ="project_bitacoras">
+  <% @project_implementation.project_bitacoras.map { |m| %>
+
+  <div class="field">
+    <%= :day %>
+    <%= m.day %>
+  </div>
+
+  <div class="field">
+    <%= :objetives %>
+    <%= m.objetives %>
+  </div>
+
+  <div class="field">
+    <%= :observations %>
+    <%= m.observations %>
+  </div>
+
+  <div class="field">
+    <%= :advances %>
+    <%= m.advances %>
+  </div>
+
+  <div class="field">
+    <%= :conflicts %>
+    <%= m.conflicts %>
+  </div>
+
+  <div class="field">
+    <%= :new_ideas %>
+    <%= m.new_ideas %>
+  </div>
+
+<% } %>
+
+  </div>
+
+
+
 <%= link_to 'Edit', edit_project_project_implementation_path(@project_implementation) %>

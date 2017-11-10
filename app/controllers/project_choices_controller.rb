@@ -46,7 +46,7 @@ class ProjectChoicesController < ApplicationController
   def update
     respond_to do |format|
       if @project_choice.update(project_choice_params)
-        format.html { redirect_to edit_project_project_planification_path(@project), notice: 'Project choice was successfully updated.' }
+        format.html { redirect_to project_project_choice_path(@project), notice: 'Project choice was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_choice }
       else
         format.html { render :edit }
