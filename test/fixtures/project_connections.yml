@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  needs: MyText
+  ideas: MyText
+  project: one
+
+two:
+  needs: MyText
+  ideas: MyText
+  project: two

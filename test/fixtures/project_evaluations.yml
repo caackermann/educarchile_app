@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  q_connect: MyText
+  q_choose: MyText
+  q_plan: MyText
+  q_implement1: MyText
+  q_implement2: MyText
+  q_implement3: MyText
+  project: one
+
+two:
+  q_connect: MyText
+  q_choose: MyText
+  q_plan: MyText
+  q_implement1: MyText
+  q_implement2: MyText
+  q_implement3: MyText
+  project: two

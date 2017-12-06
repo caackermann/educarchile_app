@@ -1,0 +1,27 @@
+<div class="projects">
+    <% if @methodologies.any? %>
+    <h1>Metodologías</h1>
+    
+    
+        <% @methodologies.each do |methodology| %>
+        <div class="card">
+          
+            <div class="image">
+                <span class="title"><%= methodology.name %></span>
+                <button class="fab ripple"></button>
+            </div>
+            <div class="content">
+            <p><%= methodology.description.truncate_words(20) %></p>
+          </div>
+          <div class="action">
+            <%= link_to "Ver más", methodology.link, class: "ripple" %>
+          </div>
+        </div>
+          
+        <% end %>
+   
+    
+    <br>
+  <% end %>
+  </div>
+  

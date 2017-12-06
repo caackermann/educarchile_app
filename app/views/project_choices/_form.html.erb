@@ -1,0 +1,44 @@
+<%= form_for [@project, @project.build_project_choice]  do |form| %>
+  <% if project_choice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project_choice.errors.count, "error") %> prohibited this project_choice from being saved:</h2>
+
+      <ul>
+      <% project_choice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :methodology_id, "Elige una de las metodolgias que evaluaste para implementar en tu proyecto:" %><br>
+    <%= form.select :methodology_id, @project.project_connection.methodology_evaluations.map {|x| [x.methodology.name, "#{x.methodology.id}"] }, {},{class: 'form-control'} %>
+  </div>
+<br>
+  <h4>
+    Incluye tres argumentos de por qué elegiste esta metología. ¿Por qué tiene
+    sentido para tu comunidad educativa? Este paso te será útil para
+    fundamentar tu decisión ante el equipo.
+  </h4>
+<div class="center">
+  <div class="field">
+    <%= form.label :p1, "a)" %>
+    <%= form.text_area :p1, id: :project_choice_p1, size:"150x1"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :p2,"b)"%>
+    <%= form.text_area :p2, id: :project_choice_p2, size:"150x1"%>
+  </div>
+
+    <div class="field">
+    <%= form.label :p3, "c)" %>
+    <%= form.text_area :p3, id: :project_choice_p3, size:"150x1" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Continuar a Planificar", class:"btn btn-lg btn-custom" %>
+  </div>
+  </div>
+<% end %>

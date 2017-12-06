@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/progressbar', project: @project %>
+
+
+  <h4>Metodología escogida:</h4>
+  <p><%= Methodology.find(@project_choice.methodology_id).name %></p>
+<h4>Razones para seleccionar esta metodología: </h4>
+<p>
+  <strong>Nº1</strong>
+  <%= @project_choice.p1 %>
+</p>
+
+<p>
+  <strong>Nº2</strong>
+  <%= @project_choice.p2 %>
+</p>
+
+<p>
+  <strong>Nº3:</strong>
+  <%= @project_choice.p3 %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_project_choice_path(@project_choice) %>

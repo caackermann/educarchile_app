@@ -1,0 +1,82 @@
+<%= simple_form_for([@project, @project.project_planification]) do |form| %>
+  <%= form.error_notification %>
+
+  <div class="form-inputs">
+    <%= form.label :place, "¿Dónde se va a implementar?" %><br>
+    <%= form.text_area :place, class: "form-control", placeholder: "Escribe tu respuesta acá..." %>
+  </div>
+<br>
+  <h4>Periodo de implementación</h4>
+
+  <div class="form-inputs">
+    <%= form.label :startdate, "Fecha de inicio   :" %>
+    <%= form.date_select :startdate, class:"form-control"%>
+  </div>
+
+  <div class="form-inputs">
+    <%= form.label :finishdate, "Fecha de término   :" %>
+    <%= form.date_select :finishdate, class: "form-control" %>
+  </div>
+<br>
+  <h4>Recursos Físicos y Financieros</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th>Item</th>
+        <th>Disponible </th>
+        <th>¿Cómo podemos obtener los recursos?</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody class ="project_resources">
+      <%= form.simple_fields_for :project_resources do |builder| %>
+      <%= render 'project_resource_fields', f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <div class="center">
+    <%= link_to_add_association 'Agregar Recurso', form, :project_resources, class: 'btn btn-success add_fields', data: { association_insertion_node: '.project_resources', association_insertion_method: :append } %>
+  </div>
+  </div>
+  <h3>Otras condiciones necesarias </h3>
+    <h4>(autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th>Item</th>
+        <th>¿Cómo podemos obtener los recursos?</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody class ="project_conditions">
+      <%= form.simple_fields_for :project_conditions do |builder| %>
+      <%= render 'project_condition_fields',f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <div class="center">
+    <%= link_to_add_association 'Agregar Recurso', form, :project_conditions, class: 'btn btn-success add_fields', data: { association_insertion_node: '.project_conditions', association_insertion_method: :append } %>
+  </div>
+  </div>
+
+
+
+
+<br><br>
+<div class="form-actions">
+  <div class="center">
+      <%= form.submit "Actualizar", class:"btn btn-lg btn-custom" %>
+  </div>
+</div>
+
+<% end %>

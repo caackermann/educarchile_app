@@ -1,0 +1,12 @@
+<div><h1><strong> <center> Etapa 6 de 6: Mandar encuesta  </center></strong></h1></div>
+</br>
+<%= progress_bar 0.99, label: true, style: 'min-width: 20px', alternative: 'success', active: true %>
+
+
+<p> Ingresa los mails de las personas a las que deseas encuestar separados por comas</p>
+<%= form_tag("create") do %>
+  <%= text_field_tag "students_emails" %>
+
+  <%= submit_tag "Submit" %>
+
+<% end %>

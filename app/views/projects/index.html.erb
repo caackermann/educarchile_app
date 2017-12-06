@@ -1,0 +1,31 @@
+  <div class="projects">
+    <% if @projects.any? %>
+    <h1>Todos los proyectos</h1>
+        <% @projects.each do |project| %>
+          <div class="card">
+            <div class="image">
+                <span class="title"><%= project.name %></span>
+                <button class="fab ripple",><%= project.avg_rating%></button>
+            </div>
+            <div class="content">
+            <p><%= project.description.truncate_words(20) %></p>
+          </div>
+          <div class="action">
+            <%= link_to "Ver más", project, class: "ripple" %>
+          </div>
+        </div>    
+        <% end %>
+    <br>
+    <% else %>
+    <div class="center">
+        <h1>No existen proyectos todavía</h1>
+    </div>
+  <% end %>
+  <% if user_signed_in?%>
+  <div class="center">
+    <%= link_to 'Crear nuevo proyecto', new_project_path %>
+  </div>
+  <%end%>
+  
+  </div>
+  

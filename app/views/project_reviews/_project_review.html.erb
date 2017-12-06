@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="row">
+      <div class="col-sm-2">
+          <%= image_tag gravatar_url(project_review.user.email, 64), class:"img-circle2" %>
+      </div>
+      <div class="col-sm-5">
+        <div class="row review-user-name">
+          <%= link_to(project_review.user) do %>
+            <p> <%= project_review.user.name %> <%= project_review.user.lastname%> </p>
+          <% end %>
+        </div>
+        <div class="row review-block-date">
+          <p>
+            <% if I18n.locale == :es %>
+              Creado hace <%= time_ago_in_words(project_review.created_at) %>
+            <% elsif I18n.locale == :en %>
+              <%= time_ago_in_words(project_review.created_at) %> ago
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-5">
+          <div class="star-rating" data-score= <%= project_review.rating %> ></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="review-block-description">
+        <p> <%=project_review.content %> </p>
+      </div>
+    </div>
+  </div>
+  <hr>

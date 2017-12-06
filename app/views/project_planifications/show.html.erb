@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/progressbar', project: @project %>
+
+<p>
+ 
+
+<p>
+  <strong>Lugar donde se implementará:</strong>
+  <%= @project_planification.place %>
+</p>
+
+<p>
+  <strong>Fecha de Inicio:</strong>
+  <%= @project_planification.startdate %>
+</p>
+
+<p>
+  <strong>Fecha de Fin:</strong>
+  <%= @project_planification.finishdate %>
+</p>
+
+<h3>Recursos Físicos y Financieros</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Disponible </th>
+        <th>¿Cómo podemos obtener los recursos?</th>
+      </tr>
+    </thead>
+
+    <tbody class ="project_resources">
+      <% @project_planification.project_resources.map  { |m| %>
+        <tr>
+        <td><%= m.name%></td>
+        <td><% if m.disponibility == true%>Si<%else%>No<% end %></td>
+        <td><%= m.comment%></td>
+        </tr>
+
+      <% } %>
+    </tbody>
+  </table>
+
+
+<h3>Otras condiciones necesarias </h3> 
+<h4>(autorizaciones, ajuste de horarios, disponibilidad de espacios, entre otros)</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>¿Cómo podemos obtener los recursos?</th>
+      </tr>
+    </thead>
+
+    <tbody class ="project_conditions">
+      <% @project_planification.project_conditions.map  { |m| %>
+        <tr>
+        <td><%= m.name%></td>
+        <td><%= m.comment%></td>
+        </tr>
+
+      <% } %>
+    </tbody>
+  </table>
+
+<%= link_to 'Edit', edit_project_project_planification_path(@project_planification) %>

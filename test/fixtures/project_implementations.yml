@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-11-07
+  observations: MyText
+  advances: MyText
+  conflicts: MyText
+  new_ideas: MyText
+  project: one
+
+two:
+  day: 2017-11-07
+  observations: MyText
+  advances: MyText
+  conflicts: MyText
+  new_ideas: MyText
+  project: two

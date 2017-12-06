@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/progressbar', project: @project %>
+
+  <h3>PASO 1:</h3>
+  <h4> Conectar: </h4>
+  <p class="text-center"><%= @project_evaluation.q_connect %></p>
+
+  <h3>PASO 2: </h3>
+    <h4>Elegir</h4>
+  <p class="text-center"><%= @project_evaluation.q_choose %></p>
+
+<h3>PASO 3:</h3> 
+<h4>Planificar</h4>
+  <p class="text-center"><%= @project_evaluation.q_plan %>
+</p>
+
+<h3>PASO 4: </h3>
+<h4>Implementar (1)</h4>
+  <p class="text-center"><%= @project_evaluation.q_implement1 %>
+</p>
+
+<h3>PASO 4: </h3>
+  <h4>Implementar (2) </h4>
+  <p class="text-center"><%= @project_evaluation.q_implement2 %>
+</p>
+
+<h3>PASO 4:</h3>
+   <h4>Implementar (3) </h4>
+  <p class="text-center"><%= @project_evaluation.q_implement3 %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_project_project_evaluation_path(@project_evaluation) %>
